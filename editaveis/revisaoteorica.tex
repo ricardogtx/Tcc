@@ -54,7 +54,6 @@ estudo do movimento permite-nos verificar, avaliar, reabilitar e prevenir por ex
   tarefas da vida diária e do trabalho.
   \end{enumerate}
 \cite{contextBiomecanica}
- %Done: Inserir um parágrafo com exemplos de aplicação para a importancia e analise do movimento humano (fisioterapia, esportistas de alto desempenho)
 \subsection{Análise de dados cinéticos e cinemáticos}
 Quando os dados de cinemática ou cinética é indexado com o tempo, o resultado é uma série temporal cinemático
  ou cinético. A ferramenta mais comum para analisar essas séries temporais são os
@@ -106,7 +105,6 @@ execução (ou uma sequência repetitiva) de um tipo conhecido do movimento
  (uma sequência de passos, ou uma sequência de senta-levanta-senta), identificar os principais eventos, 
 a fim de extrair informações úteis, ou seja, características espaço-temporais \cite{roberto}.
 
-%Done: EXPLICAR POR ALTO O TRAbalho do roberto: o que faz, qual o contexto da aplicação, qual a contribuição do trabalho, e por fim as etapas de processamento
 O trabalho apresentando em \cite{roberto} investiga técnicas para análise automática
 do movimento humano. A principal contribuição é um novo procedimento para avaliação
 automática do movimento humano que executa segmentação e extração de parâmetros de
@@ -197,8 +195,9 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \label{movimentoIncorreto}                                                        
 \end{figure}                                                                   
 
+\subsection{Sistema Linear Dinâmico Chaveado}
 
-% DONE?Inserir um parágrafo deixando explicito que seu trabalho é aplicar tecnicas de engenharia de software para gerar um produto do protótipo proposto por roberto.. 
+Todo
 
 \section{Engenharia de Software}
 \label{Sec:ContextoESW}
@@ -224,7 +223,6 @@ consegue detectar 25 articulações esqueletais por pessoa.
 \cite{microsoftResearch}
 \label{esqueletokinect}                                                        
 \end{figure}                                                                    
-  %Done: Colocar uma imagem com a extração do esqueleto do kinect
 
   O windows SDK para Kinect, fornece ferramentas e APIs necessários para desenvolver
 aplicações Kinect nas linguagens  C++, C\#, Visual Basic, ou outra linguagem .NET. Hoje em sua versão 2.0. Entre seus recursos estão o acesso completo ao Kinect: vídeo,
@@ -232,7 +230,6 @@ profundidade, áudio, motor e funções de alto nível e também  criar aplicati
 para o sistema operacional da microsoft e seu console para jogos. Como vemos, 
 temos problemas com as linguagens, que não se encaixam neste trabalho, e o suporte apenas ao sistema operacional da microsoft, porém
 existe soluções multiplataformas como o OpenKinect \cite{openKinect}.
-  %Done: Falar da API de desenvolvimento do Kinect. C# e características gerais dessa api (soh funciona em windows). Qual é a solução para linux? OpenKinect...etc
   O OpenKinect é uma comunidade aberta de pessoas interassadas em fazer uso do 
 hardware do Xbox Kinect, disponibilizando bibliotecas de código aberto, além 
 de oferecer \textit{wrappers}(uma entidade que encapsula e oculta a complexidade
@@ -244,7 +241,6 @@ de acelerômetros e giroscópios \cite{imu}.
 
    Além desses citados, existem sensores
 não detalhados aqui que poderiam servir para o mesmo propósito, como outros sensores ópticos de captura de movimentos.
-%Done: Colocar referencia bib para os sensores. DIzer que existem outros tipos de sensores não detalhados aqui que poderiam servir para esse propósito
 
 \section{Processamento de sinais}
 \label{Sec:Processamento de sinais}
@@ -266,7 +262,6 @@ expressividade. Combina uma sintaxe concisa e clara com os recursos poderosos de
 
 Isso significa que é possível fazer qualquer tipo de processamento com bastante
  facilidade. Além disso o python possui bibliotecas que facilitam muito o trabalho da programação.
- %Done: Diz por que o python foi escolhido. Linguagem semelhante ao matlab (protótipo). Facilitar a compreensao de engenheiros .. comunidade grande desenvolvendo processamento de sinais em python
 
 \section{Interface humano/computador}
 \label{Sec:Interface humano/computador}
@@ -275,7 +270,6 @@ motoras e ou físicas, para tal é necessário entender os aspectos e
 ter conhecimento do padrão dos movimentos. 
 Optou-se por uma interface com usuário semelhante à jogos, à fim de facilitar a visualização dos movimentos através de avatares customizados e tornar o exercício mais prazeroso.
 
-%Carla: i
 
 Para isso o sistema necessita
 de uma forma de comunicação com o paciente, em conformidade com isto, 
@@ -290,7 +284,6 @@ ao android.  Tem suporte para programação em C\# e JavaScript. O unity 3d tamb
   Pela sua capacidade multiplataforma e sua grande comunidade ativa, o unity 3D
 será usado neste trabalho para a interface com o usuário.
   
-  %Done: Inserir as linguagens suportadas pelo Unity3D. 
 \section{Integração}
 \label{Sec:Integração}
 
@@ -301,7 +294,6 @@ módulos é dados sobre os ângulos/articulações do movimento. Como uma diretr
  temos uma tabela de ângulos entre os sistemas \ref{nomenclaturaUnity3d}.
 
 
-%Carla: Explicar por que vc faz esse sistemas.. A informação que será compartilhada entre esses tres módulos é dados sobre os angulos/juntas do movimento
 \begin{table}[]
 \centering
 \caption{Nomenclatura Unity 3d para as articulações em ordem hierárquica}
@@ -392,19 +384,11 @@ fluidez e nem atraso na correção.
 sendo elas arquiteturais, a escolha do  paradigma de programação, podendo ser paralelo ou 
 concorrente e possivelmente restrições de hardware.
 
-%Modulos aquisicao (quual a frenquencia de aquisicao do kinect, por exemplo -- 300 milissegundos) -- + processamento de sinal  (a partir dos dados, ele vai extrair padroes, -- ) + visualizaçao
-%Feedback pro usuario tem que ser "Instantaneo" , logo o processamento tem que ser em tempo real (tempo real). tempo real - tempo maximo permitido para executar um loop. O problema eh
-%encontrar a solucao de software para o processamento de sinal.
-% Frequencia de refresh na tela para que seja considerado instantaneo?? 25 Hz.
-% Essa restriçao impor as decisoes arquiteturais, paradigma de programacao (paralelo e ou concorrente), restricoes de hardware
-
-%Pode ser realizado sequencialmente 
 \section{Engenharia de Produto}
 \label{Sec:Engenharia de Produto}
   Para o desenvolvimento de qualquer produto, necessita-se de um processo, 
 planejamento e projeto do produto. Para este trabalho, foi escolhida a 
 metodologia ágil de desenvolvimento de software.
-%Carla: Vc vai usar praticas ageis,, deixar isso claro.. so escreva o que vai usar!!
 \subsection{Manifesto Ágil}
 \label{Sec:Manifesto Ágil}
   O manifesto ágil foi criado em 2001 e descreve um conjunto de abordagens para
@@ -483,9 +467,6 @@ e práticas, serão utilizados neste trabalho:
   \cite{praticaXp}                                                        
   \end{itemize}                                                                 
   
-%OBSERVAÇÃO: quem vai desempenhar os papeis.. detalhe como vai ser executado os rituais do scrum: 
-% Acho melhor detalhar os papéis e rituais na metodologia
-
 \subsection{Métricas de código}
 \label{Sec:Métricas de código}
   A medição é algo comum e presente em todas as áreas da engenharia. Servindo 
@@ -507,9 +488,3 @@ testes \cite{bradshaw}
 dos testes concluídos, da cobertura dos testes, dos casos de testes que 
 passaram ou os que estão pendentes. Para essas atividades usaremos o framework 
 unittest.Unittest é um módulo padrão disponível na versão 2.1 ou superior do python.
-
-
-%Carla: vc vai usar o mezuro, code climate ou aldo do tipo para levantar essas metricas? deixar claro!
-
-
-%Done: Colocar as praticas XP que vc vai adotar no processo de desenvolvimento
