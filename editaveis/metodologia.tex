@@ -1,11 +1,11 @@
 
 \chapter[Metodologia]{Metodologia}
-
-\section{Resumo do Capítulo}
+  Esse capítulo irá apresentar quais métodos serão utilizados para que o trabalho
+atinja os objetivos finais.
+%%%%%%%\section{Resumo do Capítulo}
 
 \section{Metodologia de Condução do Trabalho de Conclusão de Curso}
 \label{Sec:MetCondTCC}
-
 %Revisão bibliografica (contexto biomedica)
 %Trabalho do Roberto - compreender o que foi feito e como foi feito (levantar os componentes funcionais do sistema)
 %Tecnologia - aprender (unity + python + matlab)
@@ -25,7 +25,7 @@ trabalho de conclusão de curso 2.
 e podemos afirmar que ele pertence a área da engenharia biomédica. "Classicamente, 
 a Engenharia Biomédica é vista como a aplicação dos métodos de distintas áreas 
 das Ciências Exatas e de Engenharia no campo das Ciências Médicas e 
-Biológicas."\cite{engenhariaBiomedica}. Isso pois ele desenvolve uma abordagem 
+Biológicas."\cite{engenhariaBiomedica}. Pois ele desenvolve uma abordagem 
 inovadora aplicado a terapia de  doenças/acidentes motores, ou seja, aplicado a
  fiosioterapia. Onde desenvolve uma nova abordagem para análise de movimentos.
 
@@ -57,7 +57,7 @@ fóruns online.
 \label{Sec:protótipo}
   Junto com o exame de qualificação citado anteriormente \cite{roberto}, foi 
 desenvolvido um protótipo no software matlab \cite{matlab}. Esse sistema inicial
-implementou algumas das teorias do exame. Ele possui três etapas, rotular os dados,
+implementou algumas das teorias do exame. Ele possui três etapas: rotular os dados,
 parametrização e utilizar para segmentação automática.
 \begin{itemize}
 
@@ -70,20 +70,20 @@ parametrização e utilizar para segmentação automática.
 e \textit{transitionIndexMultivariateFile}.Os dados de entrada são puxados dos arquivos da pasta 
 'PreProcessedData','/',DecRateN\_Filter,'/',Movement,'/',Subject,'/',Trial,'.mat'.
 Esses dados foram coletados previamente por sensores. Os dados são uma struct .mat
-com  os ângulos de algumas juntas e o tempo. Esses ângulos são dados em radianos
- e são divididos em juntas e em uma única coluna como podemos observar em \ref{structMatlab}.
+com  os ângulos de algumas articulações e o tempo. Esses ângulos são dados em radianos
+ e são divididos em articulações e em uma única coluna como podemos observar em \ref{structMatlab}.
 
 \begin{figure}[!h]                                                               
 \centering                                                                         
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/structMatlab.eps}                                
-\caption{Dados das juntas}                                        
+\caption{Dados das articulações}                                        
 \label{structMatlab}                                                        
 \end{figure} 
 
   Quando o script é executado  primeiro um gráfico é traçado com várias curvas 
  para selecionar o início e fim de cada conjunto de dados,
-depois cada curva é apresentada separadamente. Esse é a etapa para rotular os 
-dados de cada curva. No prompt ele pergunta qual o “Switch Variable”. Em seguida
+depois cada curva é apresentada separadamente. Essa é a etapa para rotular os 
+dados de cada curva. No prompt ele pergunta qual o “\textit{Switch Variable}”, em seguida
  ele pede para marcar  o início e o fim do intervalo com esse rótulo. A seguir 
 pergunta se é o fim do  conjunto de dados. Caso não seja o fim ele volta a
  perguntar qual a “Switch Variable”. Esse procedimento se repete para todas as curvas.
@@ -135,10 +135,10 @@ iniciais do sistema:
   \item \textbf{Funcionalidade}(Functionality):
     \begin{itemize}
     \item Software para auxilar o acompanhamento de pacientes em reabilitação 
-    motora de movimentos específicos .
-    \item É realizado por meio de comparação do movimento preciso das juntas do
-     corpo humano em tempo real, com uma base de juntas com os movimentos 
-    previamente estabelicida.
+    motora de movimentos específicos.
+    \item É realizado por meio de comparação do movimento preciso das articulações do
+     corpo humano em tempo real, com uma base de articulações com os movimentos 
+    previamente estabelicidos.
     \item Apresenta um conjunto de movimentos gravados para seleção e execução.
     \end{itemize}
   \item \textbf{Usabilidade}(Usability)
@@ -161,8 +161,9 @@ iniciais do sistema:
     \end{itemize}
 \item \textbf{Suportabilidade}(Supportability)
     \begin{itemize}
-    \item Seja suportável em qualquer computador pessoal que tenha como sistema
-     operacional alguma distribuição linux e ou windows;
+    \item Para que alcance um maior número de usuários e para que não seja exclusivo de um sistema operacional,
+ inicialmente é desejável que seja suportável em qualquer computador pessoal, que tenha como sistema
+     operacional alguma distribuição linux ou windows.
     \item Possuir uma suíte de testes sendo eles de aceitação e unitário.
     \end{itemize}
   \end{itemize}
@@ -170,7 +171,7 @@ iniciais do sistema:
 \subsection{Histórias de usuário}
 \label{Sec:Histórias de usuário}
   Como prática ágil as \textit{User stories}(Histórias de usuário), são artefatos
-de desenvolvimento, utilizadas para organizar requisitos. Elas focam nos objetivos
+de desenvolvimento, utilizadas para organizar requisitos. Tem-se foco nos objetivos
 do usuário e como o sistema alcança esses objetivos.
   
   Para melhor organizar e fracionar os requisitos deste trabalho, foi adotado 
@@ -184,18 +185,18 @@ essa prática ágil, podemos ver um levantamento inicial do \textit{product back
 \hline
 \textbf{História} & 1                                                        \\ \hline
 \textbf{Eu como}  & Usuário administrador(fisioterapeuta)                    \\ \hline
-\textbf{Desejo}   & Visualizar os dados obtidos das juntas                   \\ \hline
+\textbf{Desejo}   & Visualizar os dados obtidos das articulações                   \\ \hline
 \textbf{Para}     & poder identificar movimentos desejados e assim rotulá-lo \\ \hline
  \multicolumn{2}{|l|}{}                                                       \\ \hline
 \textbf{História} & 2                                                        \\ \hline
 \textbf{Eu como}  & Usuário administrador                                    \\ \hline
 \textbf{Desejo}   & Visualizar a movimentação em um avatar 3D                \\ \hline
-\textbf{Para}     & Poder certificar a rotulação de dados da movimentação da juntas\\ \hline
+\textbf{Para}     & Poder certificar a rotulação de dados da movimentação da articulações\\ \hline
 \multicolumn{2}{|l|}{}                                                       \\ \hline
 \textbf{História} & 3                                                        \\ \hline
 \textbf{Eu como}  & Usuário administrador                                    \\ \hline
 \textbf{Desejo}   & Que o sistema corrija minha movimentação em tempo real   \\ \hline
-\textbf{Para}     & Poder melhor executar os movimentos das juntas           \\ \hline
+\textbf{Para}     & Poder melhor executar os movimentos das articulações           \\ \hline
 \multicolumn{2}{|l|}{}                                                       \\ \hline
 \textbf{História} & 4                                                        \\ \hline
 \textbf{Eu como}  & Usuário administrador(fisioterapeuta)                    \\ \hline
@@ -217,7 +218,7 @@ essa prática ágil, podemos ver um levantamento inicial do \textit{product back
 \textbf{História} & 7                                                        \\ \hline
 \textbf{Eu como}  & Usuário                                                  \\ \hline
 \textbf{Desejo}   & Feedback do movimento sendo executado                    \\ \hline
-\textbf{Para}     & Poder melhor executar os movimentos das juntas           \\ \hline
+\textbf{Para}     & Poder melhor executar os movimentos das articulações           \\ \hline
 \multicolumn{2}{|l|}{}                                                       \\ \hline
 
 \textbf{História} & 8                                                        \\ \hline
@@ -258,7 +259,7 @@ os envolvidos neste trabalho.
 
   As \textit{Sprints} terão duração de duas semanas. Já as \textit{Sprints Plannings}
 e as \textit{Sprints reviews}, terão durações de no máximo uma hora e serão 
-discutidas com os resonsáveis por desempenhar os papel de \textit{Product Owner}.
+discutidas com os responsáveis por desempenhar os papéis de \textit{Product Owner}.
 
   Para \textit{Definition of Done}, uma feature só será considerada pronta quando
 devidamente testada e também após ser aprovada pelos \textit{Product Owners}, que 
@@ -288,16 +289,16 @@ cumpre uma função clara no contexto de uma arquitetura bem definida".
   \item Módulo do processamento de sinal: Responsável pelo processamento dos dados
   adquiridos pelo módulo anterior;
   \item Módulo de visualização: Responsável pela interface com o usuário;
-  \item Módulo do banco de dados: Responsável por guardar as informações das juntas.
+  \item Módulo do banco de dados: Responsável por guardar as informações das articulações.
   \end{itemize} 
 
   A comunicação entre o módulo sensor e o módulo processamento, será por meio 
-das informações das juntas colhidas pelos sensores e enviadas para o processamento.
+das informações das articulações colhidas pelos sensores e enviadas para o processamento.
 O módulo do processamento se comunicará, além do módulo do sensor, com os demais
-módulos, a troca com o módulo de visualização será de  informações sobre as juntas,
+módulos, a troca com o módulo de visualização será de  informações sobre as articulações,
 e o estado da movimentação, podendo estar de acordo com a base de dados ou não e 
 dizendo onde se encontra os erros de execução. Já a comunicação com o módulo do
-banco de dados será por meio de informações de juntas, podendeo ser já catalogadas
+banco de dados será por meio de informações de articulações, podendeo ser já catalogadas
  ou o cadastro de novos movimentos. Podemos melhor enxergar essa comunicação na 
 figura \ref{diagrama}
 

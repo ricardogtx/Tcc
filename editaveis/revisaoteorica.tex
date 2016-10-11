@@ -1,13 +1,12 @@
 
 \chapter[Revisão Teórica]{Revisão Teórica}
-Breve introdução sobre o que vai ser apresentado no capítulo
-
+  Esse capítulo irá apresentar alguns conceitos que irão sustentar o objetivo deste trabalho.
 \section{Contexto Biomédico}
 \subsection{Importância da análise do movimento humano}
 
-A medição do movimento humano é uma forma de observação, através da utilização 
+A mensuração do movimento humano é uma forma de observação, através da utilização 
 de dispositivos, para descrever os fenômenos em termos de variáveis a serem analisadas. 
-Os dados adquiridos a partir da medição podem elucidar deficiências 
+Os dados adquiridos a partir da mensuração podem elucidar deficiências 
 motoras após trauma ou esclarecer os efeitos de intervenção externa controlada.
 Eles são usados para descrever, caracterizar, medir o impacto dos
 fatores externos e analisar o movimento humano. Dados cinemáticos e cinéticos podem ser combinados
@@ -20,7 +19,7 @@ necessidade de uma grande área para a medição, entre outros.
 Em estudos do movimento humano, existem essencialmente três tipos de variáveis de medição: tempo,
 cinemática e cinética. O tempo pode ser utilizado isoladamente para medir a duração de um determinado movimento
 , mas fornece mais informações quando associado a uma variável cinemática ou cinética.
-As variáveis de cinemáticas descrevem o movimento do corpo, que são lineares (deslocamento,
+As variáveis cinemáticas descrevem o movimento do corpo, que são lineares (deslocamento,
 velocidade e aceleração) ou angular (deslocamento, velocidade e aceleração).
  As variáveis cinéticas são ou o momento de força ou força que gera o movimento \cite{roberto}.
 
@@ -89,17 +88,17 @@ A Figura \ref{sentar-para-levantar-para-sentar} mostra os diagramas de ciclo de 
 \end{figure}                                                                    
 
 \subsection{Automatizando a análise do movimento}
-  Nos tempos atuais é muito comum sistemas de análise autotmático de movimento.
+  Nos tempos atuais é muito comum sistemas de análise automático de movimento.
 Um exemplo disso é o kinect da microsoft que se encaixa como sendo de baixo custo, que  
-extrai as coordenadas das juntas nos usuários e são usados como sinal de entrada de jogos e aplicativos.
+extrai as coordenadas das articulações nos usuários e são usados como sinal de entrada de jogos e aplicativos.
 Além do Kinect, outros sensores são disponíveis no mercado para obtenção de precisão de dados da cinemática humana, fazendo com que essa informação seja hoje acessível e disseminado.
 Porém, as técnicas de pós-processamento para extração de recurso automático de dados cinemáticos ainda estão surgindo.
 
-Uma vez extraído dados das juntas no decorrer do tempo, esses dados devem ser identificados para segmentar/classificar movimentos pré-definidos.
+Uma vez extraído dados das articulações no decorrer do tempo, esses dados devem ser identificados para segmentar/classificar movimentos pré-definidos.
   No contexto da segmentação do movimento humano e classificação para a reabilitação, 
 uma importante distinção deve ser feita sobre o significado da tarefa de segmentação e classificação. 
-Um problema é segmentar uma sequência de movimentos desconhecidos em 
-individuais seguidos pela classificação do tipo de movimento (rotulando cada única
+Um problema é segmentar uma sequência de movimentos desconhecidos e 
+individuais, seguidos pela classificação do tipo de movimento (rotulando cada única
  execução de acordo com um conjunto de possíveis candidatos). 
 Este problema foi recentemente investigada com resultados importantes, tais como 
 feito por \cite{LinaAndDkulic} e \cite{PdeDios}. Outro problema é: dada uma única 
@@ -115,15 +114,15 @@ desempenho motor em séries temporais de medidas de uma sequência de movimentos
 utiliza os elementos de um modelo de Sistema Linear Dinâmico Chaveado como componentes
  de base para traduzir definições formais e procedimentos utilizados na análise de
 movimento tradicional. Sua abordagem estabelece um método que permite usuários sem
-experiência em processamentos de sinais criarem modelos para movimentos a partir de da-
-dos rotulados e usá-los posteriormente para avaliação automática. No trabalho é validado o
+experiência em processamentos de sinais criarem modelos para movimentos a partir de dados rotulados e usá-los posteriormente para avaliação automática. No trabalho é validado o
 procedimento com conjunto de dados coletados de seis indivíduos sadios que executaram
 movimentos comuns em testes funcionais e sessões de exercícios de reabilitação, tais como
 o sentar-e-levantar e elevação lateral dos braços.
 
 Existe três estágios para utilização do sistema. Primeiro uma pessoa qualificada
 executa um exercício ou uma sessão de exercício que é armazenado. Neste estágio,
-o Kinect é controlado através de uma função matlab e é especificamente desenvolvida
+o Kinect é controlado através de uma função matlab, que foi escolhido por ser otimizado para resolução de problemas científicos e de engenharia e onde
+ a linguagem MATLAB é a maneira mais natural do mundo para expressar matemática computacional \cite{matlab}, e é especificamente desenvolvida
 para GUI(\textit{Graphic User interface} - Interface gráfica do usuário). Esta
 função baseia-se em tarefas periódicas para captar e armazenar os pontos 3D, bem
 como as imagens capturadas pelo Kinect. Os pontos 3D compõem a representação de
@@ -148,10 +147,10 @@ de referências externas como por exemplo o nível do solo. Foram considerados o
  pontos do esqueleto para ser utilizado como a origem do sistema de referência, 
 mas o quadril pareceu mais estável durante o acompanhamento de esqueleto.
 
-Finalmente o sistema é uado em tempo real para um feedback visual em uma sessão 
+Finalmente o sistema é usado em tempo real para um feedback visual em uma sessão 
 de treino. Através do GUI, o usuário começa o processo. Inicialmente a função do 
  OpenNI Skeleton deve detectar o usuário e calibrar o rastreio do esqueleto. Uma
-vez que é feita a calibração uma funão períodica para o feedback é chamada. Durante
+vez que é feita a calibração uma função períodica para o feedback é chamada. Durante
 essa fase, a captura do esqueleto do usuário é periodicamente atualizado e plotados 
 junto os dados de exercício gravados por especialiasta no primeiro estágio. Combinando
  as origens de ambos os quadros de referência permite a correspondência dos pontos 3D
@@ -160,7 +159,7 @@ junto os dados de exercício gravados por especialiasta no primeiro estágio. Co
 e os de reprodução em preto.
 
 Durante a execução de uma comparação do padrão de um membro específico do corpo
- é comparado com a norma da mesma parte do corpo do usuário. Se esta norma está
+ é comparado com o padrão da mesma parte do corpo do usuário. Se este padrão está
  dentro de mais ou menos 10\% dos dados registados a exibição gráfica da parte 
 do corpo de interesse permanece verde, caso contrário, a parte torna-se vermelho.
 A comparação é feita em cada quadro em função periódica. Como resultado, este simples
@@ -203,7 +202,7 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 
 \section{Engenharia de Software}
 \label{Sec:ContextoESW}
-
+  O objetivo deste trabalho, é aplicar as várias técnicas e metodologias de engenharia de software  aprendidas e usadas durante o curso, para gerar um produto derivado do protótipo apresentado em \ref{Sec:protótipo}.
 \section{Aquisição de dados com Sensores}
 \label{Sec:Aquisição de dados com sensores}
 
@@ -228,25 +227,30 @@ consegue detectar 25 articulações esqueletais por pessoa.
   %Done: Colocar uma imagem com a extração do esqueleto do kinect
 
   O windows SDK para Kinect, fornece ferramentas e APIs necessários para desenvolver
-aplicações Kinect, hoje em sua versão 2.0. Entre seus recursos estão acesso completo ao Kinect: vídeo,
+aplicações Kinect nas linguagens  C++, C\#, Visual Basic, ou outra linguagem .NET. Hoje em sua versão 2.0. Entre seus recursos estão o acesso completo ao Kinect: vídeo,
 profundidade, áudio, motor e funções de alto nível e também  criar aplicativos 
 para o sistema operacional da microsoft e seu console para jogos. Como vemos, 
-seu grande problema é suporte apenas ao sistema operacional da microsoft, porém
-existe soluções multiplataformas como o OpenKinect \cite{openKinect} e o OpenNi \cite{openNI}.
+temos problemas com as linguagens, que não se encaixam neste trabalho, e o suporte apenas ao sistema operacional da microsoft, porém
+existe soluções multiplataformas como o OpenKinect \cite{openKinect}.
   %Done: Falar da API de desenvolvimento do Kinect. C# e características gerais dessa api (soh funciona em windows). Qual é a solução para linux? OpenKinect...etc
-
+  O OpenKinect é uma comunidade aberta de pessoas interassadas em fazer uso do 
+hardware do Xbox Kinect, disponibilizando bibliotecas de código aberto, além 
+de oferecer \textit{wrappers}(uma entidade que encapsula e oculta a complexidade
+ subjacente de outra entidade, por meio de interfaces bem definidas \cite{wrapper}) 
+para diversas linguagens, entre elas o \textit{python}.
   Outro sensor que podemos usar são os sensores inerciais \textit{inertial 
 measurement unit - IMU} onde medem a velocidade angular, usando uma combinação 
-de acelerômetros e giroscópios \cite{imu}. Além desses citados, existem sensores
+de acelerômetros e giroscópios \cite{imu}.
+
+   Além desses citados, existem sensores
 não detalhados aqui que poderiam servir para o mesmo propósito, como outros sensores ópticos de captura de movimentos.
 %Done: Colocar referencia bib para os sensores. DIzer que existem outros tipos de sensores não detalhados aqui que poderiam servir para esse propósito
 
 \section{Processamento de sinais}
 \label{Sec:Processamento de sinais}
   Para o processamento dos dados obtidos através dos sensores a 
-linguagem escolhida é o python. Esta linguagem foi escolhida porque é semelhante ao matlab,
-que foi a tecnologia usada para o protótipo do trabalho \cite{roberto}, além de ser uma linguagem
-de fácil compreensão e possuir uma grande comunidade desenvolvendo bibliotecas
+linguagem escolhida é o python. Esta linguagem foi escolhida pois é semelhante ao matlab,
+que foi a tecnologia usada para o protótipo do trabalho \cite{roberto}, de fácil compreensão, e também possui uma grande comunidade desenvolvendo bibliotecas
 para processamento de sinais.
 
   Python é uma linguagem de programação de alto nível de propósito geral \cite{python} , 
@@ -268,7 +272,7 @@ Isso significa que é possível fazer qualquer tipo de processamento com bastant
 \label{Sec:Interface humano/computador}
   O foco principal do sistema é auxiliar pacientes que apresentam deficiência 
 motoras e ou físicas, para tal é necessário entender os aspectos e
-ter conhecimento da certa execução dos movimentos. 
+ter conhecimento do padrão dos movimentos. 
 Optou-se por uma interface com usuário semelhante à jogos, à fim de facilitar a visualização dos movimentos através de avatares customizados e tornar o exercício mais prazeroso.
 
 %Carla: i
@@ -293,7 +297,7 @@ será usado neste trabalho para a interface com o usuário.
   Como já foi especificado, o sistema se dividirá em três módulos, a leitura dos sensores (C\#) o processamento
 de sinais (python), e a interface com o usuário (Unity 3D), para dar vida ao sistema
 precisaremos integrar ambos. A informação que será compartilhada entre esses três
-módulos é dados sobre os ângulos/juntas do movimento. Como uma diretriz inicial,
+módulos é dados sobre os ângulos/articulações do movimento. Como uma diretriz inicial,
  temos uma tabela de ângulos entre os sistemas \ref{nomenclaturaUnity3d}.
 
 
@@ -323,26 +327,28 @@ Toes                         & Optional Bone                & Left leg/Right leg
 \end{tabular}
 \end{table} 
 
-\subsection{Juntas no Unity 3d}
-\label{Sec:Juntas no Unity 3d}
+\subsection{Articulações no Unity 3d}
+\label{Sec:Articulacoes no Unity 3d}
   Também chamadas de character joint elas são usadas para o chamado efeito 
 boneco de pano (\textit{ragdoll effects}). A posição inicial de Referência é a 
-a posição em T (\textit{T pose}). O unity não limita a angulação da junta, 
+a posição em T (\textit{T pose}). O unity não limita a angulação da articulação, 
 deixando isso na mão do desenvolvedor, porém eles orientam ângulos máximos 
-para melhor estabilizar seu avatar 3d.\cite{unity3dManual}
+para estabilizar melhor seu avatar 3d.\cite{unity3dManual}
 
-\subsection{Juntas no corpo humano}
+\subsection{Articulações no corpo humano}
 \label{Sec:Juntas no corpo humano}
-  A Posição Anatómica de Referência é considerada como sendo a postura de 
-referência utilizada na descrição da posição e movimento relativo entre os 
-segmentos anatômicos do corpo humano.
+ A posição anatômica é uma posição de referência, que dá significado aos termos
+ direcionais utilizados na descrição das partes e regiões do corpo. As discussões
+ sobre o corpo, o modo como se movimenta, sua postura ou a relação entre uma e 
+outra área assumem que o corpo como um todo está numa posição específica chamada
+ posição anatômica 
 
   A tabela \ref{Juntas no corpo} mostra a articulação, seus movimentos e sua capacidade máxima em
-graus de movimentação.
+graus de movimentações.
 
 \begin{table}[]
 \centering
-\caption{Juntas no corpo}
+\caption{Articulações no corpo}
 \label{Juntas no corpo}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -380,9 +386,9 @@ para o usuário a 30Hz, assim a aproximadamente 33 milisegundos o
 sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso
  restringe o processamento do sinal a 33 milissegundo de um input a outro, e 
 também no tempo de atualização da imagem exibida para que não haja perda na 
-fluideze e nem atraso na correção.
+fluidez e nem atraso na correção.
 
-  Com essas isso, o sistema impõe algumas restrições que devem ser tomadas,
+  Com isso, o sistema impõe algumas restrições que devem ser tomadas,
 sendo elas arquiteturais, a escolha do  paradigma de programação, podendo ser paralelo ou 
 concorrente e possivelmente restrições de hardware.
 
@@ -404,10 +410,12 @@ metodologia ágil de desenvolvimento de software.
   O manifesto ágil foi criado em 2001 e descreve um conjunto de abordagens para
 desenvolvimento de software.
   Seus principais valores são:
-  Indivíduos e interações a processos e ferramentas;
-  Software funcionando a documentação compreensiva;
-  Colaboração do Cliente a negociação por contrato;
-  Responder a mudanças a seguir um plano.\cite{manifestoAgil}
+  \begin{itemize}
+  \item Indivíduos e interações a processos e ferramentas;
+  \item Software funcionando a documentação compreensiva;
+  \item Colaboração do cliente a negociação por contrato;
+  \item Responder a mudanças a seguir um plano.\cite{manifestoAgil}
+  \end{itemize}
 
 \subsection{Scrum}
 \label{Sec:Scrum}
@@ -446,7 +454,7 @@ práticas e artefatos ágeis para o desenvolvimento do mesmo. Sendo eles:
    aumentar.                                                                    
   \cite{mindmasterScrum}                                                        
   \item \textit{Sprints}: Sprints são ciclos com períodos de tempo definido  para
-   que tenham sempre um início e fim data fixa, e, geralmente, todos eles devem 
+   que tenham sempre um início e fim, data fixa, e geralmente todos eles devem 
    estar com a mesma duração.                                                   
   \cite{mindmasterScrum}                                                        
   \item \textit{Sprint Planning}: Planejamento da Sprint.                       
