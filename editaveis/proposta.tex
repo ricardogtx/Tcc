@@ -7,7 +7,7 @@ sistema no contexto da reabilitação motora. Desse modo, este
 capítulo está dividido nas seções: Solução(\ref{sol:solucao}) e Fontes de erro(\ref{sol:fontesErro}).
 
 \section{Solução}\label{sol:solucao}
-  Nesta seção serão apresentadas as features envolvidas na solução do sistema,
+  Nesta seção serão apresentadas as \textit{features} envolvidas na solução do sistema,
 além das ferramentas usadas. Esta será dividida em Arquitetura (\ref{sub:arquitetura}), Funcionalidades-\textit{features}(\ref{sub:solFeatures}) e
 ferramentas(\ref{sub:solFerramentas}).
 
@@ -46,7 +46,53 @@ Abaixo falaremos um pouco sobre o papel de cada classe:
 
 \subsection{\textit{Features}}\label{sub:solFeatures}
   O sistema possui três features, gravação de movimento, leitura de arquivo do movimento desejado e análise da repetição do movimento, elas estão
-detalhadas em Funcionalidades do sistema(\ref{sub:features}).
+detalhadas em Funcionalidades do sistema(\ref{sub:features}).Como observado na imagem \ref{img:menu}, podemos visualizar todas as funcionalidades a partir do menu do sistema.
+
+\begin{figure}[H]
+\centering
+\includegraphics [keepaspectratio=true,scale=0.40]{figuras/menu.eps}
+\caption{Menu do sistema}
+\label{img:menu}
+\end{figure}
+
+  Abaixo será listado as telas do sistema relacionado as três funcionalidades
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.40]{figuras/gravarmovimento.eps}
+  \caption{Gravar movimento}
+  \label{img:gravarmovimento}
+  \end{figure}
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.40]{figuras/gravarmovimento2.eps}
+  \caption{Gravar movimento}
+  \label{img2:gravarmovimento}
+  \end{figure}
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.40]{figuras/lerarquivo.eps}
+  \caption{Ler Arquivo de Movimento}
+  \label{img:lerArquivo}
+  \end{figure}
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.40]{figuras/praticarmovimento.eps}
+  \caption{Praticar Movimento}
+  \label{img:praticarMovimento}
+  \end{figure}
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.40]{figuras/praticarmovimento2.eps}
+  \caption{Praticar Movimento com esqueleto para auxílio ao desenvolvimento}
+  \label{img2:praticarMovimento}
+  \end{figure}
+
+
 
 \subsection{Ferramentas}\label{sub:solFerramentas}
   Para o desenvolvimento do sistema foram usadas diversas ferramentas, a seguir serão apresentadas junto
@@ -129,7 +175,3 @@ com o paciente.
 Este é um conceito relacionado com a utilização de cartões (post-it e outros) para indicar o andamento dos fluxos de produção em empresas de fabricação em série.\ref{sec:kanban}
 
   Ao longo do desenvolvimento foi utilizado o \textit{trello}  que é uma espécie de \textit{kanban eletrônico}, ele pode ser acessado \href{https://trello.com/}{aqui} gratuitamente.
-
-\section{Fontes de Erro}\label{sol:fontesErro}
-  Como dito antes, a principal fonte do erro do sistema é o kinect. Por este motivo, durante a realização do desenvolvimento buscou-se minimizar a margem de erro
-do sensor, deixando uma margem de graus sobre o movimento das juntas que não comprometesse de fato o movimento.
