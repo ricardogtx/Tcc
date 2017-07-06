@@ -1,0 +1,35 @@
+\chapter[Problemas enfrentados]{Problemas enfrentados}
+  Este capítulo tem como apresentar os problemas enfrentados durante o desenvolvimento,
+  assim como das soluções tomadas. Desse modo, este
+capítulo está dividido nas seções: Multiplataforma (\ref{pro:Multiplataforma}),
+Arquitetura(\ref{pro:arquitetura}) e Conhecimento das tecnologias utilizadas(\ref{pro:conhecimento}).
+\section{Multiplataforma}\label{pro:Multiplataforma}
+  Em proposta apresentada na entrega do primeiro documento, foi apresentado que a solução seria multiplataforma,
+apresentando todas as bibliotecas possíveis para tal feito. Porém ao tentar instalar bibliotecas \textit{open soureces}
+para a comunicação do PC com o sistema operacional Linux, distribuição Debian, notou-se que as bibliotecas não
+estavam mais sendo mantidas, com atualizações datando de mais de 3 anos.
+
+  Contudo ainda fez-se várias tentativas e por muito tempo,
+a instalação e comunicação com o kinect e Linux, todavia havia dependências de pacotes em versões que não eram mais
+mantidas no repositório do Debian, assim buscou-se alternativas para instalação de tais pacotes, aumentando o efeito cascata
+de dependências de pacotes não mais mantidos, despendindo muito tempo e como resultado insucesso.
+
+  Por final decidiu-se usar somente o sistema operacional da Microsoft o windows, com uma facilitada comunicação
+kinect e sistema operacional através de \textit{SDK(Software Development Kit)}
+
+
+\section{Arquitetura}\label{pro:arquitetura}
+  Em proposta apresentada na entrega do primeiro documento, foi mostrada uma arquitetura de módulos, onde o core,
+o processamento seria feito em python e comunicaria com os demais cores que poderiam ser acoplados. Uma arquitetura
+inicial foi desenvolvida em python e pode ser encontrada \href{https://gitlab.com/ricardogtx/tcc2}{aqui}. Tal arquitetura conseguia
+se comunicar com o Unity 3d, porém isso só acrescentaria mais complexidade tanto ao desenvolvimento, quanto a
+instalação em ambiente de clientes.
+  Por final decidiu-se usar somente o Unity3d com a linguagem C\#. Assim podemos contar com o poder e todos os recursos do C\#
+ e das bibliotecas do Unity 3d que facilitam alguns cálculos como por exemplo,
+ cálculos entre os ângulos das juntas. E se houver a necessidade, podemos utilizar os recursos
+\textit{multiprocessing} do C\#.
+
+\section{Conhecimento das tecnologias utilizadas}\label{pro:conhecimento}
+  O autor pesquisador e desenvolvedor do sistema, não detinha conhecimento prévio de nenhuma das
+tecnologias utilizadas, o Unity 3d e na linguagem C\#, com isso a velocidade do desenvolvimento ficou afetada
+e possivelmente alguma decisão arquitetural não tenha sido a melhor.
