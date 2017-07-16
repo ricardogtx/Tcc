@@ -1,10 +1,12 @@
 
 \chapter[Revisão Teórica]{Revisão Teórica}
   Esse capítulo irá apresentar alguns conceitos que irão sustentar o objetivo deste trabalho.
-Desse modo este capítulo está dividido nas seções: Contexto Biomédico(\ref{sec:contextoBio}),
-Engenharia de Software(\ref{sec:engenhariaSoft}) e Engenharia de Produto(\ref{sec:engenhariaProd})
-\section{Contexto Biomédico}\label{sec:contextoBio}
-\subsection{Importância da análise do movimento humano}
+Desse modo este capítulo está dividido nas seções: Importância da análise do movimento humano(\ref{sec:importancia}),
+Engenharia de Software(\ref{sec:engenhariaSoft}), Aquisição de dados com Sensores(\ref{sec:aquisicaoSensores}),
+Processamento de sinais(\ref{sec:processamentoSinais}), Articulações no corpo humano(\ref{sec:Juntas no corpo humano}), Interação humano-computador(\ref{sec:ihc}), Restrição - Tempo real(\ref{sec:restrição}),
+Trabalho relacionado(\ref{Sec:MetCondTCC}), Requisitos(\ref{Sec:Requisitos}) e Arquitetura de software(\ref{Sec:arquitetura}).
+
+\section{Importância da análise do movimento humano}\label{sec:importancia}
 
 A mensuração do movimento humano é uma forma de observação, através da utilização
 de dispositivos, para descrever os fenômenos em termos de variáveis a serem analisadas.
@@ -80,7 +82,7 @@ outros tipos de movimento, tais como o movimento senta-levanta-senta e também a
 
 A Figura \ref{sentar-para-levantar-para-sentar} mostra os diagramas de ciclo de movimento para a marcha e sentar-para-levantar-para-sentar .
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/sentaLevanta.eps}
 \caption{Sentar-para-levantar-para-sentar}
@@ -170,7 +172,7 @@ Na imagem \ref{movimentoReproducao} podemos ver a reprodução do movimento, já
 imagem \ref{movimentoCorreto} podemos ver a correta execução do movimento e no
 conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movimentação.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoReproducao.eps}
 
@@ -179,7 +181,7 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \label{movimentoReproducao}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoCorreto.eps}
 
@@ -188,7 +190,7 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \label{movimentoCorreto}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoIncorreto.eps}
 
@@ -198,15 +200,10 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \end{figure}
 
 \section{Engenharia de Software}\label{sec:engenhariaSoft}
-\label{sec:ContextoESW}
-  O objetivo deste trabalho, é aplicar algumas técnicas e metodologias de engenharia de software  aprendidas e usadas durante o curso,
-para gerar um sistema que auxilia a reabilitação motora. Tornando a reabilitação menos tediosa e mais lúdica.
-
-\section{Engenharia de Produto}\label{sec:engenhariaProd}
-\label{sec:Engenharia de Produto}
   Para o desenvolvimento de qualquer produto, necessita-se de um processo,
-planejamento e projeto do produto. Para este trabalho, foi escolhida a
-metodologia ágil de desenvolvimento de software.
+planejamento e projeto do produto. Para isso algumas técnicas e metodologias de
+engenharia de software  aprendidas e utilizadas durante o curso, serão empregadas em
+auxílio do desenvolvimento deste trabalho.
 \subsection{Manifesto Ágil}
 \label{sec:Manifesto Ágil}
   O manifesto ágil foi criado em 2001 e descreve um conjunto de abordagens para
@@ -219,56 +216,6 @@ desenvolvimento de software.
   \item Responder a mudanças a seguir um plano.\cite{manifestoAgil}
   \end{itemize}
 
-\begin{comment}
-
-\subsection{Scrum}
-\label{sec:Scrum}
-  Dentre algumas metodologias ágeis, está o scrum, que serve para planejamento
-de projetos de software. Nele, os projetos são dividos em ciclos chamados de
-\textit{Sprints}. O sprint representa um espaço de tempo onde um conjunto de
-atividades deverão ser executadas.
-
-  Todas as funcionalidades iniciais a serem implementadas em um projeto são
-mantidas em uma lista que é conhecida como \textit{Product Backlog}.
-No início de cada	\textit{Sprint},realiza-se um  \textit{	Sprint Planning Meeting},
-uma reunião de planejamento na qual o \textit{Product Owner} prioriza os itens
-do \textit{Product Backlog} e a equipe seleciona as atividades capaz de
-implementar durante o \textit{Sprint}. As tarefas escolhidas para uma
-\textit{Sprint} são transferidas do \textit{Product Backlog} para o
-\textit{Sprint Backlog}.
-
-  A cada dia de uma \textit{Sprint}, a equipe faz uma breve reunião , chamada
-\textit{Daily Scrum}. O objetivo é disseminar conhecimento sobre o que
-foi feito no dia anterior, identificar impedimentos e priorizar o trabalho do
-dia que se inicia.
-
-  Ao final da \textit{Sprint}, a equipe apresenta as funcionalidades implementadas em
-uma \textit{Sprint Review Meeting}. Realiza-se uma \textit{Sprint Retrospective}
- e a equipe parte para o planejamento da próxima \textit{Sprint}.
-Assim reinicia-se um ciclo.
-
-  Como visto, o scrum é praticado em uma grande equipe, o que não é realidade
-para o desenvolvimento deste trabalho. Sendo assim será usado apenas algumas
-práticas e artefatos ágeis para o desenvolvimento do mesmo. Sendo eles:
-
-  \begin{itemize}
-  \item \textit{Product Backlog}: É um documento que está constantemente evoluindo.
-  Os itens podem ser adicionados, excluídos e revisto por conta de mudanças nas
-  condições de negócios, ou conforme a compreensão da equipe Scrum sobre o produto
-   aumentar.
-  \cite{mindmasterScrum}
-  \item \textit{Sprints}: Sprints são ciclos com períodos de tempo definido  para
-   que tenham sempre um início e fim, data fixa, e geralmente todos eles devem
-   estar com a mesma duração.
-  \cite{mindmasterScrum}
-  \item \textit{Sprint Planning}: Planejamento da Sprint.
-  \item \textit{Sprint Review}: Revisão da sprint.
-  \item \textit{Definition of Done}: Definição de pronto, para saber se determinada
-  funcionalidade deve ser considerada pronta.
-  \cite{mindmasterScrum}
-  \end{itemize}
-
-\end{comment}
 
 \subsection{\textit{Kanban}}
 \label{sec:kanban}
@@ -302,26 +249,224 @@ e práticas, serão utilizados neste trabalho:
   \cite{praticaXp}
   \end{itemize}
 
-\begin{comment}
-  \subsection{Métricas de código}
-  \label{sec:Métricas de código}
-    A medição é algo comum e presente em todas as áreas da engenharia. Servindo
-  de parâmetro para o andamento de projetos e atestando qualidade de produtos. Já
-  na engenharia de software não existe uma medição padrão e aceita, ainda existe
-  divergências sobre o que medir e como qualificar os resultados obtidos.
+  \section{Aquisição de dados com Sensores}
+  \label{sec:aquisicaoSensores}
 
-    Contudo, através das métricas de código podemos compreender a complexidade,
-  número de métodos, nível de coesão e acoplamento entre classes, e o mais
-  importante, atestar a qualidade do produto.
+    Sensor pode ser entendido como dispositivo eletrônico que é sensível a determinada
+  condição do ambiente, desde luminosidade, temperatura até a aceleração própria.
+  No sistema desenvolvido junto a este trabalho é usado o kinect(\ref{sub:kinect}).
 
-    As métricas de teste são um padrão de medidas muito útil para a verificação
-  da efetividade e da eficiência de diversas atividades do desenvolvimento de
-  software. Também são usadas para prover informações como estimativas do esforço
-  necessário para o teste. São obtidas e interpretadas durante o processo de
-  testes \cite{bradshaw}
 
-   Para este trabalho iremos usar métricas de teste e iremos focar em percentual
-  dos testes concluídos, da cobertura dos testes, dos casos de testes que
-  passaram ou os que estão pendentes. Para essas atividades usaremos o framework
-unittest.Unittest é um módulo padrão disponível na versão 2.1 ou superior do python.
-\end{comment}
+  \section{Processamento de sinais}
+  \label{sec:processamentoSinais}
+  Processamento de sinais consiste na análise e/ou modificação de sinais
+(sequências discretas de números) de forma a extrair
+informações dos mesmos e/ou torná-los mais apropriados para alguma aplicação específica.\cite{processamentoSinais}
+
+    Neste trabalho, os dados obtidos através do sensor serão tratados e processados dentro do Unity 3d(\ref{sub:unity3d}), através de suas bibliotecas e com o auxílio da
+   linguagem C\#.
+
+   \section{Articulações no corpo humano}
+   \label{sec:Juntas no corpo humano}
+    A posição anatômica é uma posição de referência, que dá significado aos termos
+    direcionais utilizados na descrição das partes e regiões do corpo. As discussões
+    sobre o corpo, o modo como se movimenta, sua postura ou a relação entre uma e
+   outra área assumem que o corpo como um todo está numa posição específica chamada
+    posição anatômica.
+
+     A tabela \ref{Juntas no corpo} mostra a articulação, seus movimentos e sua capacidade máxima em
+   graus de movimentações.
+
+   \begin{table}[H]
+   \centering
+   \caption{Articulações no corpo}
+   \label{Juntas no corpo}
+   \begin{tabular}{|c|c|c|}
+   \hline
+   \rowcolor[HTML]{C0C0C0}
+   Articulação                 & Movimento       & Grau de  Movimento \\ \hline
+                               & Flexão          & 0-180              \\ \cline{2-3}
+                               & Extensão        & 0-45               \\ \cline{2-3}
+                               & Adução          & 0-40               \\ \cline{2-3}
+                               & Abdução         & 0-180              \\ \cline{2-3}
+                               & Rotação medial  & 0-90               \\ \cline{2-3}
+   \multirow{-6}{*}{Ombro}     & Rotação lateral & 0-90               \\ \hline
+                               & Flexão          & 0-145              \\ \cline{2-3}
+   \multirow{-2}{*}{Cotovelo}  & Extensão        & 145-0              \\ \hline
+                               & Pronação        & 0-90               \\ \cline{2-3}
+   \multirow{-2}{*}{Radiulnar} & Supinação       & 0-90               \\ \hline
+                               & Flexão          & 0-90               \\ \cline{2-3}
+                               & Extensão        & 0-70               \\ \cline{2-3}
+                               & Adução          & 0-45               \\ \cline{2-3}
+   \multirow{-4}{*}{Punho}     & Abdução         & 0-20               \\ \hline
+   \end{tabular}
+   \end{table}
+
+
+  \subsection{Articulações no Unity 3d}
+  \label{sec:Articulacoes no Unity 3d}
+    Também chamadas de character joint elas são usadas para o chamado efeito
+  boneco de pano (\textit{ragdoll effects}). A posição inicial de Referência é a
+  a posição em T (\textit{T pose}). O unity não limita a angulação da articulação,
+  deixando isso na mão do desenvolvedor, porém eles orientam ângulos máximos
+  para estabilizar melhor seu avatar 3d\cite{unity3dManual}.
+
+
+  \section{Interação humano-computador}
+  \label{sec:ihc}
+  A interação humano-computador (IHC), é o estudo da interação entre pessoas e computadores.
+  É uma matéria interdisciplinar que relaciona a ciência da computação,
+  artes, design, ergonomia, psicologia, sociologia, semiótica, linguística, e áreas afins.
+  A interação entre humanos e máquinas acontece através da interface do utilizador,
+  formada por software e hardware. Ela é utilizada, por exemplo, para algumas manipulações
+  de periféricos de computadores e grandes máquinas\cite{ihc}.
+
+  A fim de facilitar a visualização dos movimentos e a interação com o sistema, optou-se por uma interface semelhante a jogos.
+  Avatares customizados repetem os movimentos tornando os exercícios menos tediosos e mais lúdicos. Para este processo, utilizou-se
+  o Unity 3d(\ref{sub:unity3d}).
+
+  \section{Restrição - Tempo real}
+  \label{sec:restrição}
+    Todo o processo desde a aquisição do movimento ao processamento do sinal e a
+  resposta para o usuário pode ser feito sequencialmente, porém ele deve dar o
+  retorno em tempo real para que o usuário possa corrijir a movimentação e se
+  aproxime da correta execução do movimento. Para isso, temos que levar em conta
+  a frequência de aquisição do sensor usado, o tempo do processamento de sinal e
+  a frequência de atualização do monitor.
+
+    O sensor kinect \cite{microsoftResearch}, tem uma frequência de
+  aquisição de quadros de 30Hz, junto a um monitor com taxa de atualização de imagem
+  para o usuário a 30Hz, assim a aproximadamente 33 milisegundos o
+  sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso
+   restringe o processamento do sinal a 33 milissegundo de um input a outro, e
+  também no tempo de atualização da imagem exibida para que não haja perda na
+  fluidez e nem atraso na correção.
+
+  \section{Trabalho relacionado}
+  \label{Sec:MetCondTCC}
+    O desenvolvimento deste trabalho foi inspirado no exame de qualificação do Roberto de Souza Baptista\cite{roberto}.
+  e podemos afirmar que ele pertence a área da engenharia biomédica. "Classicamente,
+  a Engenharia Biomédica é vista como a aplicação dos métodos de distintas áreas
+  das Ciências Exatas e de Engenharia no campo das Ciências Médicas e
+  Biológicas."\cite{engenhariaBiomedica}. Ele desenvolve uma abordagem
+  inovadora aplicado a terapia de  doenças/acidentes motores, aplicado a
+   fiosioterapia. Onde desenvolve uma nova abordagem para análise de movimentos.
+
+  \subsection{Protótipo}
+  \label{Sec:protótipo}
+    Junto com o exame de qualificação citado anteriormente \cite{roberto}, foi
+  desenvolvido um protótipo no software matlab \cite{matlab}. Esse sistema inicial
+  implementou algumas das teorias do exame. Ele possui três etapas: rotular os dados,
+  parametrização e utilizar para segmentação automática.
+  \begin{itemize}
+
+  \begin{sloppypar}
+
+  \item \textbf{Rotulação}: Na etapa de rotular os dados,começando pelo arquivo
+  ' SCRIPT\_labelAndIndexMultivariateFile\_WBM21.m '. Neste script estão duas funções,
+  \textit{labelAndIndexUnivariateFile} que por sua vez chama a função
+  \textit{labelAndIndexUnivariateStructDataset} que chama a função \textit{labelAndIndexUnivariateDataset}
+  e \textit{transitionIndexMultivariateFile}.Os dados de entrada são puxados dos arquivos da pasta
+  'PreProcessedData','/',DecRateN\_Filter,'/',Movement,'/',Subject,'/',Trial,'.mat'.
+  Esses dados foram coletados previamente por sensores. Os dados são uma struct .mat
+  com  os ângulos de algumas articulações e o tempo. Esses ângulos são dados em radianos
+   e são divididos em articulações e em uma única coluna como podemos observar em \ref{structMatlab}.
+
+  \begin{figure}[!h]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.60]{figuras/structMatlab.eps}
+  \caption{Dados das articulações}
+  \label{structMatlab}
+  \end{figure}
+
+    Quando o script é executado  primeiro um gráfico é traçado com várias curvas
+   para selecionar o início e fim de cada conjunto de dados,
+  depois cada curva é apresentada separadamente. Essa é a etapa para rotular os
+  dados de cada curva. No prompt ele pergunta qual o “\textit{Switch Variable}”, em seguida
+   ele pede para marcar  o início e o fim do intervalo com esse rótulo. A seguir
+  pergunta se é o fim do  conjunto de dados. Caso não seja o fim ele volta a
+   perguntar qual a “Switch Variable”. Esse procedimento se repete para todas as curvas.
+  Logo após, vem a parte que rotula os dados multivariáveis dependendo do conjunto
+  de rótulos de cada variável separada. O resultado é a struct “thisLabeledIndexStructDataSet” salvo na pasta
+  LabeledDataMultivariate’/‘,DecRateN\_Filter,'/',Movement,'/',Subject,'/',Trial,'.mat'.
+
+  \item \textbf{Parametrização}: Na etapa de parametrização do modelo a função:
+   \"SLDS\_Univariate\_ParameterDataSetBuilder2.m\" pega os dados rotulados da etapa
+  anterior, ou seja os dados segmentados automaticamente e com as funções
+  “parametersCteVelSpaceStateModel2” e “hmmTransitionMatrix2” calcula os parâmetros
+  do Modelo Oculto de Markov. Esta função é a base para o script
+  "SLDS\_Univariate\_IntraSubject\_ParameterDataset\_Script.m”  que pega diversos
+   conjuntos de dados rotulados, de diferentes sujeitos ou diferentes execuções
+  do mesmo sujeito e chama a função “SLDS\_Univariate\_ParameterDataSetBuilder2.m”
+   para cada um deles e no fim temos os parâmetros do modelo oculto de Markov ajustado
+   para vários conjuntos de treinamento.
+
+  \end{sloppypar}
+  \item \textbf{Segmentação}: Esse é o programa que faz a estimação dos rótulos associado com cada medida.
+  A principal função é a “SLDS\_Filter\_Univariate” ela recebe as structs
+  ValidationTrialThisVariable e FittedModelThisVariable e a variável
+  InitialSwitchVariableState. A ValidationTrialThisVariable contém os dados a serem
+   classificados e pode conter também os rótulos. São as medidas do movimento, os
+  mesmos dados usados na parte de rotulação. O FittedModelThisVariable são todos
+  os parâmetros do modelo (análogo aos parâmetros do ModeloOculto de Markov).
+  A variável InitialSwitchVariableState indica o símbolo da primeira medida.
+
+  Na imagem \ref{diagramProt} podemos ver todo o fluxo de dados do protótipo.
+  \end{itemize}
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics [keepaspectratio=true,scale=0.60]{figuras/diagramProt.eps}
+  \caption{Fluxo de Dados}
+  \label{diagramProt}
+
+  \end{figure}
+
+
+  \section {Requisitos}
+  \label{Sec:Requisitos}
+    Um requisito é definido como "uma condição ou uma capacidade com a qual o
+  sistema deve estar de acordo"\cite{requisitos}. Existem vários tipos de
+  requisitos. Um modo de categorizá-los é descrito como o modelo
+  FURPS+\cite{robertGrady}.
+
+  FURPS+ é um sistema para a classificação de requisitos, o acrônimo representa categorias que podem ser usadas na definição de requisitos, assim como representa atributos de Qualidade de Software, sendo ele parte do Rational Unified Process (RUP):
+\begin{itemize}
+
+\item Functionality (Funcionalidade) – Representa todo aspecto funcional do software, seus requisitos. É uma categoria com diversas subcategorias que variam de acordo com a aplicação. Sua medição considera, principalmente, o cumprimento dos requesitos especificados.
+
+\item Usability (Usabilidade) – É o atributo que avalia a interface com o usuário. Possui diversas subcategorias, entre elas: prevenção de erros; estética e design; ajudas (Help) e documentação; consistência e padrões.
+
+\item Reliability (Confiabilidade) – Refere-se a integridade, conformidade e interoperabilidade do software. Os requisitos a serem considerados são: freqüência e gravidade de falha; possibilidade de recuperação; possibilidade de previsão; exatidão; tempo médio entre falhas (MTBF).
+
+\item Performance (Desempenho) – Avalia os requisitos de desempenho do software. Podendo usar como medida diversos aspectos, entre eles: tempo de resposta, consumo de memória, utilização da CPU, capacidade de carga e disponibilidade da aplicação.
+
+\item Supportability (Suportabilidade) – os requisitos de suportabilidade agrupam várias características, como: testabilidade, adaptabilidade, manutenibilidade, compatibilidade, configurabilidade, instalabilidade, escalabilidade, localizabilidade entre outros.
+\end{itemize}
+O “+” do acrônimo engloba outros requisitos não-funcionais que devem ser lembrados:
+\begin{itemize}
+\item Requisitos de design (desenho) – Um requisito de design, freqüentemente chamado de uma restrição de design, especifica ou restringe o design de um sistema. Exemplos podem incluir: linguagens de programação, processo de software, uso de ferramentas de desenvolvimento, biblioteca de classes, etc.
+\item Requisitos de implementação – Um requisito de implementação especifica ou restringe o código ou a construção de um sistema. Como exemplos, podemos citar:
+\begin{itemize}
+
+  \item padrões obrigatórios;
+  \item linguagens de implementação;
+  \item políticas de integridade de banco de dados;
+  \item limites de recursos;
+  \item ambientes operacionais.
+
+\end{itemize}
+\item Requisitos de interface – especifica ou restringe as funcionalidades inerentes a interface do sistema com usuário.
+\item Requisitos físicos – especifica uma limitação física pelo hardware utilizado, por exemplo: material, forma, tamanho ou peso. Podendo representar requisitos de hardware, como as configurações físicas de rede obrigatórias.
+\end{itemize}
+\cite{rational}
+  \section{Arquitetura de software}
+  \label{Sec:arquitetura}
+    De acordo com a ISO/IEEE 1471-2000 - Arquitetura é a organização fundamental
+  de um sistema incorporada em seus componentes, seus relacionamentos com o
+  ambiente, e os princípios que conduzem seu design e evolução.
+
+    A arquitetura de software, consiste na definição dos componentes de software,
+     suas propriedades externas, e seus relacionamentos. A documentação da arquitetura do software
+      facilita: a comunicação entre os \textit{stakeholders},
+       e permite o reúso do projeto.

@@ -3,7 +3,7 @@
 resultados, estão presentes as fontes de erros levantadas com a experiência do desenvolvimento,
 suas respectivas correções, dentro do possível, e a análise da viabilidade da utilização do
 sistema no contexto da reabilitação motora. Desse modo, este
-capítulo está dividido nas seções: Testes(\ref{sol:solucao}) e Fontes de erro(\ref{sol:fontesErro}).
+capítulo está dividido nas seções: Testes(\ref{sec:testes}) e Fontes de erro(\ref{sol:fontesErro}).
 
 \section{Testes}\label{sec:testes}
   O principal objetivo dos testes é a observação e a análise do sistema. Após a realização de todos os testes propostos, foi possível chegar a
@@ -122,13 +122,13 @@ baixa.
 2                                 & Levantar os  Braços                     & Baixa                 & Regular               & Regular           \\ \midrule
 3                                 & Levantar os  Braços                     & Baixa                 & Ruim                  & Ruim              \\ \bottomrule
 \end{tabular}
-\end{table}Corroboramos
+\end{table}
 
 Como pode ser observado na tabela \ref{tab:teste2} a luz ambiente tem grande influência no mapeamento do \textit{kinect}, porém com uma luz ambiente boa
 a exatidão do sensor é \textbf{boa}.
 
 \subsection{Teste 3}\label{sub:teste3}
-Os resultados obtidos com o teste estão dispostos na tabela \ref{tab:teste3}. Esse teste consiste em sentar e levantar em uma cadeira , em uma velocidade
+Os resultados obtidos com o teste estão dispostos na tabela \ref{tab:teste3}. Esse teste consiste em sentar e levantar em uma cadeira de lado ao \textit{kinect}, em uma velocidade
 baixa.
 
 
@@ -139,28 +139,85 @@ baixa.
 \begin{tabular}{@{}|c|c|l|l|l|@{}}
 \toprule
 \multicolumn{1}{|l|}{\textbf{Ex}} & \multicolumn{1}{l|}{\textbf{Movimento}} & \textbf{Complexidade} & \textbf{Luz Ambiente} & \textbf{Exatidão} \\ \midrule
-1                                 & Levantar os  Braços                     & Alta                 & Boa                   & Ruim               \\ \midrule
-2                                 & Levantar os  Braços                     & Alta                 & Regular               & Ruim           \\ \midrule
-3                                 & Levantar os  Braços                     & Alta                 & Ruim                  & Ruim              \\ \bottomrule
+1                                 & Sentar de lado em Cadeira                     & Alta                 & Boa                   & Ruim               \\ \midrule
+2                                 & Sentar de lado em Cadeira                     & Alta                 & Regular               & Ruim           \\ \midrule
+3                                 & Sentar de lado em Cadeira                     & Alta                 & Ruim                  & Ruim              \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Como pode ser observado na tabela \ref{tab:teste3} o \textit{kinect} não consegue mapear bem uma pessoa de lado, o sensor se perde nas referências mostrando isntabilidade como pode ser
+Como pode ser observado na tabela \ref{tab:teste3} o \textit{kinect} não consegue rastrear uma pessoa de lado, o sensor se perde nas referências mostrando isntabilidade como pode ser
 visto na imagem \ref{img:teste3}.
 
 \begin{figure}[H]
 \centering
-\includegraphics [keepaspectratio=true,scale=0.60]{figuras/img2teste1.eps}
-\caption{Dados das articulações}
+\includegraphics [keepaspectratio=true,scale=0.60]{figuras/cadeira.eps}
+\caption{Instabilidade com o usário sentando de lado em uma cadeira}
 \label{img:teste3}
 \end{figure}
 
+\subsection{Teste 4}\label{sub:teste4}
+Os resultados obtidos com o teste estão dispostos na tabela \ref{tab:teste4}. Esse teste consiste em sentar e levantar em uma cadeira de frente ao \textit{kinect} , em uma velocidade
+baixa.
+
+
+\begin{table}[H]
+\centering
+\caption{Teste 4}
+\label{tab:teste4}
+\begin{tabular}{@{}|c|c|l|l|l|@{}}
+\toprule
+\multicolumn{1}{|l|}{\textbf{Ex}} & \multicolumn{1}{l|}{\textbf{Movimento}} & \textbf{Complexidade} & \textbf{Luz Ambiente} & \textbf{Exatidão} \\ \midrule
+1                                 & Sentar de frente em Cadeira                     & Alta                 & Boa                   & Ruim               \\ \midrule
+2                                 & Sentar de frente em Cadeira                     & Alta                 & Regular               & Ruim           \\ \midrule
+3                                 & Sentar de frente em Cadeira                     & Alta                 & Ruim                  & Ruim              \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Como pode ser observado na tabela \ref{tab:teste4} o \textit{kinect} não conseguiu rastrear o movimento da pessoa sentando em uma cadeira. O sensor se perde nas referências das juntas
+sobrepostas, mostrando instabilidade como pode ser visto na imagem \ref{img:teste4}.
+
+\begin{figure}[H]
+\centering
+\includegraphics [keepaspectratio=true,scale=0.60]{figuras/cadeiraFrente.eps}
+\caption{Instabilidade com o usuário sentando de frente em uma cadeira}
+\label{img:teste4}
+\end{figure}
+
+\subsection{Teste 5}\label{sub:teste5}
+Os resultados obtidos com o teste estão dispostos na tabela \ref{tab:teste5}. Esse teste consiste no usuário agachar-se em uma velocidade
+baixa.
+
+
+\begin{table}[H]
+\centering
+\caption{Teste 5}
+\label{tab:teste5}
+\begin{tabular}{@{}|c|c|l|l|l|@{}}
+\toprule
+\multicolumn{1}{|l|}{\textbf{Ex}} & \multicolumn{1}{l|}{\textbf{Movimento}} & \textbf{Complexidade} & \textbf{Luz Ambiente} & \textbf{Exatidão} \\ \midrule
+1                                 & Agachar                     & Alta                 & Boa                   & Regular               \\ \midrule
+2                                 & Agachar                     & Alta                 & Regular               & Ruim           \\ \midrule
+3                                 & Agachar                     & Alta                 & Ruim                  & Ruim              \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Como pode ser observado na tabela \ref{tab:teste4} o \textit{kinect} não conseguiu rastrear muito bem o movimento. O sensor se perde nas referências das juntas
+sobrepostas, mostrando instabilidade como pode ser visto na imagem \ref{img:teste5}.
+
+\begin{figure}[H]
+\centering
+\includegraphics [keepaspectratio=true,scale=0.60]{figuras/agachar.eps}
+\caption{Pouca fidelidade com o real movimento}
+\label{img:teste5}
+\end{figure}
+
+
 \section{Fontes de Erro}\label{sol:fontesErro}
   Como já mencionando anteriormente, a principal fonte do erro do sistema é devido as limitações do \textit{kinect}, seja pela precisão ou pela luz do ambiente
-. Por este motivo, é aconselhavel durante a execução dos movimentos o ambiente seja bem iluminado. Quanto a precisão,
-durante a realização do desenvolvimento buscou-se minimizar a margem de erro do sensor, deixando uma maior área de graus sobre o movimento das juntas que não comprometesse de fato o movimento.
+. Por este motivo, é aconselhavel que durante a execução dos movimentos, o ambiente esteja livre de possíveis interferências no mapeio do  sensor, além de estar bem iluminado. Quanto a precisão,
+durante a realização do desenvolvimento buscou-se minimizar a margem de erro do sensor, deixando uma maior tolerância sobre o movimento das juntas, algo que não comprometesse de fato o movimento.
 
 \section{Viabilidade}\label{sol:viabilidade}
-  Com os testes vemos que sistema gerado com este trabalho é um produto acessível para a reabilitação motora, porém em casos onde não é ncessáro
+  Com os testes vemos que o sistema gerado com este trabalho é um produto acessível para a reabilitação motora, porém em casos onde não é ncessáro
 fazer movimentos muito complexos e nem que exiga auxílio de objetos. Sendo melhor aplicado a reabilitação onde envolvam crianças, já que torna o processo
 menos tedioso e mais lúdico.
