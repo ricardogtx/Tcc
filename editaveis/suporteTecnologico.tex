@@ -1,35 +1,35 @@
 
 \chapter[Suporte Tecnológico]{Suporte Tecnológico}\label{ch:suporteTecnologico}
   Esse capítulo irá apresentar as principais tecnologias e ferramentas envolvidas no desenvolvimento deste trabalho.
-  Desse modo, este  capítulo está dividido nas seções: Unity 3d(\ref{sub:unity3d}), Kinect(\ref{sub:kinect}) e Ferramentas(\ref{sub:solFerramentas}).
+  Desse modo, este  capítulo está dividido nas seções: Unity 3d (\ref{sub:unity3d}), Kinect (\ref{sub:kinect}) e Ferramentas (\ref{sub:solFerramentas}).
 
   \section{Unity 3D}\label{sub:unity3d}
 
-      Unity 3d é um motor gráfico, criado para jogos em três e duas dimensões, além de ser
+      O Unity 3d é uma ferramenta, criado para jogos em três e duas dimensões, além de ser
     multiplataforma. Com ênfase na portabilidade ele tem como alvo o maior número
-    de apis gráficas possíveis, desde o sistema operacional da microsoft, o windows,
+    de APIs gráficas possíveis, desde o sistema operacional da microsoft, o windows,
     ao android.  Tem suporte para programação em C\# e JavaScript. O unity 3d também
-     possui uma licença pessoal, livre de custos.\cite{unity3d}
+     possui uma licença pessoal, livre de custo \cite{unity3d}.
 
-      Pela sua grande comunidade ativa, grande número de manuais e tutorias disponíveis na internet, o unity 3D
-    é usado neste trabalho para o desenvolvimento do sistema.
+      Para a criação de um produto acessível, o matlab não seria viável pois
+      sua licença é paga e ele é geralmente usado para prototipação. Com isso foi usado o Unity 3d, um motor gráfico muito usado na indústria de software para desenvolvimento de jogos comerciais e livres.
 
     \section{Kinect}\label{sub:kinect}
       O kinect é um sensor de movimentos, desenvolvido inicialmente para as plataformas
-    de jogos eletrônicos da microsoft. Ele possui uma camara RGB(\textit{Red, Green, Blue}),
+    de jogos eletrônicos da microsoft. Ele possui uma camara RGB (\textit{Red, Green, Blue}),
     um sensor de profundidade, um microfone embutido, e a versão mais recente, chamado de kinect 2.0,
-    consegue detectar 25 articulações esqueletais por pessoa\cite{{microsoftResearch}}.
+    consegue detectar 25 articulações esqueletais por pessoa \cite{{microsoftResearch}}.
 
     \begin{figure}[H]
     \centering
     \includegraphics [keepaspectratio=true,scale=0.60]{figuras/esqueletoKinect.eps}
-    \caption{Esqueleto Kinect}
-    \cite{microsoftResearch}
+    \caption{Esqueleto Kinect. Fonte: \cite{microsoftResearch}.}
+
     \label{esqueletokinect}
     \end{figure}
 
     \subsection{\textit{kinect for windows SDK V1.8 }}\label{sub:sdk}
-      O \textit{kinect for windows SDK V1.8 }, fornece ferramentas e APIs necessários para desenvolver
+      O \textit{kinect for windows SDK V1.8}, fornece ferramentas e APIs necessários para desenvolver
     aplicações Kinect nas linguagens  C++, C\#, Visual Basic, ou outra linguagem .NET. Hoje em sua versão 2.0,
     entre seus recursos estão o acesso completo ao Kinect: vídeo,
     profundidade, áudio, motor e funções de alto nível e também  criar aplicativos
@@ -58,30 +58,20 @@
 
     \subsection{Github}\label{sub:github}
       O Github\footnote{https://github.com} é uma ferramenta utilizada para hospedagem remota de projetos GIT.
-      A ferramenta contempla uma \textit{Wiki} para documentação do projeto e sistemas de \textit{Issues} e
-      \textit{Milestones}\footnote{https://guides.github.com/features/issues/} para gerenciamento de atividades.
     Neste trabalho o Github foi utilizado para hospedar a versão escrita do documento e pode ser acessado \href{https://github.com/ricardogtx/Tcc}{aqui}\footnote{https://github.com/ricardogtx/Tcc}.
 
     \subsection{Gitlab}\label{sub:gitlab}
       O Gitlab\footnote{https://gitlab.com} é outra ferramenta utilizada para hospedagem remota de projetos GIT.
-      A ferramenta assim como o Github contempla uma \textit{Wiki} para documentação do projeto e sistemas de \textit{Issues} e
-      \textit{Milestones}\footnote{https://guides.github.com/features/issues/} para gerenciamento de atividades. Porém seu diferencial é permitir que um
-    pequeno projeto possa ser privado, enquanto o Github necessita pagamento. Esta ferramenta foi utilizada para hospedar o código e pode ser acessado
+       Esta ferramenta foi utilizada para hospedar o código e pode ser acessado
     \href{https://gitlab.com/ricardogtx/Tcc}{aqui}\footnote{https://gitlab.com/ricardogtx/Tcc}.
 
     \subsection{Linux Debian}\label{sub:linuxdebian}
     		O sistema operacional utilizado durante este trabalho é o Linux Debian\footnote{https://www.debian.org/} sistema livre
-    e utilizado, neste projeto, para documentação do trabalho, utilizando a
-    tecnologia LaTeX(\ref{sub:latex}).
+    e utilizado, neste projeto, para documentação do trabalho.
 
     \subsection{Windows}\label{sub:windows}
     Sistema operacional da Microsoft 10\footnote{https://www.microsoft.com/pt-br/} , utilizado para implementação do código
     por possibilitar configuração simplificada da comunicação entre o \textit{Kinect} e o computador.
-
-    \subsection{LaTex}\label{sub:latex}
-    O LaTeX\footnote{https://www.latex-project.org/} 3.14 é um sistema para criação de documentos utilizando textos \textit{tex},
-     foi incialmente desenvolvido por Leslie Lamport, na década de 80. O LaTeX oferece diversos comandos avançados para organização
-     de alto nível de documentos, incluindo facilitadores para citações, bibliografias, fórmulas matemáticas, figuras e tabelas.
 
      \subsection{Visual Studio}\label{sub:codigo}
        Para a edição e criação do código foi usado o Micorosoft Visual Studio\footnote{https://www.visualstudio.com/pt-br/} uma IDE\textit{(Integrated development enviroment)} disponibilizada pela microsoft
@@ -93,30 +83,12 @@
 
 
 
-    \subsection{Diagrama de sequência}\label{sub:diagramaSequencia}
-      Consiste em um diagrama que tem o objetivo de mostrar como as mensagens entre os objetos são trocadas no decorrer do tempo para a realização de uma operação\cite{diagramaSequencia}.
+    \subsection{Astah community}\label{sub:diagramaSequencia}
+      É um software para modelagem uml - Linguagem de Modelagem Unificada, neste trabalho esta ferramenta foi usado para criação do diagrama de sequências, que consiste em um diagrama que tem o objetivo de mostrar como as mensagens entre os objetos são trocadas no decorrer do tempo para a realização de uma operação\cite{diagramaSequencia}.
+
     Como pode ser visto em \ref{diagramaFisio} e \ref{diagramaPaciente}, existe dois momentos de trocas de mensagens, uma com o usuário como fisioterapeuta e outra
-    com o paciente.
-
-    \begin{figure}[!h]
-    \centering
-    \includegraphics [keepaspectratio=true,scale=0.45]{figuras/diagramaFisio.eps}
-
-    \caption{Diagrama de sequência referente ao uso do fisioterapeuta}
-    \label{diagramaFisio}
-    \end{figure}
-
-
-    \begin{figure}[!h]
-    \centering
-    \includegraphics [keepaspectratio=true,scale=0.45]{figuras/diagramaPaciente.eps}
-
-    \caption{Diagrama de sequência referente ao uso do paciente}
-    \label{diagramaPaciente}
-    \end{figure}
-
-      Para a criação desses artefatos foi utilizado a ferramenta Astah community\footnote{http://astah.net/download}.
+    como paciente. A ferramenta Astah community pode ser encontrada aqui\footnote{http://astah.net/download}.
 
 
     \subsection{\textit{Trello}}\label{sub:trello}
-      Ao longo do desenvolvimento foi utilizado o \textit{trello}\footnote{https://trello.com/}  que é uma espécie de \textit{kanban eletrônico}(\ref{sec:kanban}).
+      Ao longo do desenvolvimento foi utilizado o \textit{trello}\footnote{https://trello.com/}  que é uma espécie de \textit{kanban eletrônico} (\ref{sec:kanban}).

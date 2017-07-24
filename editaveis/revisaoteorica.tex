@@ -1,10 +1,10 @@
 
 \chapter[Revisão Teórica]{Revisão Teórica}
   Esse capítulo irá apresentar alguns conceitos que irão sustentar o objetivo deste trabalho.
-Desse modo este capítulo está dividido nas seções: Importância da análise do movimento humano(\ref{sec:importancia}),
-Engenharia de Software(\ref{sec:engenhariaSoft}), Aquisição de dados com Sensores(\ref{sec:aquisicaoSensores}),
-Processamento de sinais(\ref{sec:processamentoSinais}), Articulações no corpo humano(\ref{sec:Juntas no corpo humano}), Interação humano-computador(\ref{sec:ihc}), Restrição - Tempo real(\ref{sec:restrição}),
-Trabalho relacionado(\ref{Sec:MetCondTCC}), Requisitos(\ref{Sec:Requisitos}) e Arquitetura de software(\ref{Sec:arquitetura}).
+Desse modo este capítulo está dividido nas seções: Importância da análise do movimento humano (\ref{sec:importancia}),
+Engenharia de Software (\ref{sec:engenhariaSoft}), Aquisição de dados com Sensores (\ref{sec:aquisicaoSensores}),
+Processamento de sinais (\ref{sec:processamentoSinais}), Articulações no corpo humano (\ref{sec:Juntas no corpo humano}), Interação humano-computador (\ref{sec:ihc}), Restrição - Tempo real (\ref{sec:restrição}),
+Trabalho relacionado (\ref{Sec:MetCondTCC}), Requisitos (\ref{Sec:Requisitos}) e Arquitetura de software (\ref{Sec:arquitetura}).
 
 \section{Importância da análise do movimento humano}\label{sec:importancia}
 
@@ -55,16 +55,16 @@ estudo do movimento permite-nos verificar, avaliar, reabilitar e prevenir por ex
   \item Atividades do cotidiano e do trabalho: estudo da postura e da locomoção humana,
   classificação e sistematização de grupos de movimentos em dependência de estações de
   trabalho, interface homem, máquina e meio ambiente, eficiência, saúde e segurança nas
-  tarefas da vida diária e do trabalho.
+  tarefas da vida diária e do trabalho \cite{contextBiomecanica}.
   \end{enumerate}
-\cite{contextBiomecanica}
+
 \subsection{Análise de dados cinéticos e cinemáticos}
 Quando os dados de cinemática ou cinética é indexado com o tempo, o resultado é uma série temporal cinemático
  ou cinético. A ferramenta mais comum para analisar essas séries temporais são os
 gráficos resultantes, pois é mais fácil visualizar o padrão de movimento. A inclinação e
 curvatura do gráfico de séries temporais indicam características-chave de uma
  execução do movimento e fornece uma poderosa ferramenta para análise de movimento.
-A Figura \ref{sentar-para-levantar-para-sentar} tirada do trabalho do Roberto \cite{roberto},mostra o deslocamento angular do
+A Figura \ref{sentar-para-levantar-para-sentar} tirada do trabalho do Baptista \cite{roberto},mostra o deslocamento angular do
 joelho e do tronco durante um ciclo de marcha sentar-para-levantar-para-sentar. Analisando as encostas e pontos de inflexão, é
 possível determinar o início e o fim de cada flexão ou extensão para esta determinada
 articulação.
@@ -85,13 +85,13 @@ A Figura \ref{sentar-para-levantar-para-sentar} mostra os diagramas de ciclo de 
 \begin{figure}[H]
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/sentaLevanta.eps}
-\caption{Sentar-para-levantar-para-sentar}
-\cite{roberto}
+\caption{Sentar-para-levantar-para-sentar. Fonte: \cite{roberto}.}
+
 \label{sentar-para-levantar-para-sentar}
 \end{figure}
 
 \subsection{Automatizando a análise do movimento}
-  Nos tempos atuais é muito comum sistemas de análise automático de movimento.
+  É muito comum sistemas de análise automático de movimento.
 Um exemplo disso é o kinect da microsoft que se encaixa como sendo de baixo custo, que
 extrai as coordenadas das articulações nos usuários e são usados como sinal de entrada de jogos e aplicativos.
 Além do Kinect, outros sensores são disponíveis no mercado para obtenção de precisão de dados da cinemática humana, fazendo com que essa informação seja hoje acessível e disseminado.
@@ -110,7 +110,7 @@ execução (ou uma sequência repetitiva) de um tipo conhecido do movimento
 a fim de extrair informações úteis, ou seja, características espaço-temporais \cite{roberto}.
 
 O trabalho apresentando em \cite{roberto} investiga técnicas para análise automática
-do movimento humano. A principal contribuição é um novo procedimento para avaliação
+do movimento humano. Sua principal contribuição é um novo procedimento para avaliação
 automática do movimento humano que executa segmentação e extração de parâmetros de
 desempenho motor em séries temporais de medidas de uma sequência de movimentos. Nele,
 utiliza os elementos de um modelo de Sistema Linear Dinâmico Chaveado como componentes
@@ -125,7 +125,7 @@ Existe três estágios para utilização do sistema. Primeiro uma pessoa qualifi
 executa um exercício ou uma sessão de exercício que é armazenado. Neste estágio,
 o Kinect é controlado através de uma função matlab, que foi escolhido por ser otimizado para resolução de problemas científicos e de engenharia e onde
  a linguagem MATLAB é a maneira mais natural do mundo para expressar matemática computacional \cite{matlab}, e é especificamente desenvolvida
-para GUI(\textit{Graphic User interface} - Interface gráfica do usuário). Esta
+para GUI (\textit{Graphic User interface} - Interface gráfica do usuário). Esta
 função baseia-se em tarefas periódicas para captar e armazenar os pontos 3D, bem
 como as imagens capturadas pelo Kinect. Os pontos 3D compõem a representação de
 um esqueleto do usuário, que estão em referência a posição do Kinect. Estes pontos
@@ -166,7 +166,7 @@ Durante a execução de uma comparação do padrão de um membro específico do 
 do corpo de interesse permanece verde, caso contrário, a parte torna-se vermelho.
 A comparação é feita em cada quadro em função periódica. Como resultado, este simples
 cálculo é capaz de capturar erros de execução em matéria de amplitude e tempo do
-movimento pretendido.\cite{roberto}
+movimento pretendido \cite{roberto}.
 
 Na imagem \ref{movimentoReproducao} podemos ver a reprodução do movimento, já na
 imagem \ref{movimentoCorreto} podemos ver a correta execução do movimento e no
@@ -176,8 +176,8 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoReproducao.eps}
 
-\caption{Reprodução do movimento}
-\cite{roberto}
+\caption{Reprodução do movimento. Fonte: \cite{roberto}.}
+
 \label{movimentoReproducao}
 \end{figure}
 
@@ -185,8 +185,7 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoCorreto.eps}
 
-\caption{Movimento Correto}
-\cite{roberto}
+\caption{Movimento Correto. Fonte: \cite{roberto}.}
 \label{movimentoCorreto}
 \end{figure}
 
@@ -194,8 +193,7 @@ conjunto de imagens \ref{movimentoIncorreto} vemos os principais erros de movime
 \centering
 \includegraphics [keepaspectratio=true,scale=0.60]{figuras/movimentoIncorreto.eps}
 
-\caption{Movimento Incorreto}
-\cite{roberto}
+\caption{Movimento Incorreto. Fonte: \cite{roberto}.}
 \label{movimentoIncorreto}
 \end{figure}
 
@@ -213,22 +211,19 @@ desenvolvimento de software.
   \item Indivíduos e interações a processos e ferramentas;
   \item Software funcionando a documentação compreensiva;
   \item Colaboração do cliente a negociação por contrato;
-  \item Responder a mudanças a seguir um plano.\cite{manifestoAgil}
+  \item Responder a mudanças a seguir um plano \cite{manifestoAgil}.
   \end{itemize}
 
 
 \subsection{\textit{Kanban}}
 \label{sec:kanban}
-\textit{Kanban} é um termo de origem japonesa e significa literalmente “cartão” ou “sinalização”.
-Este é um conceito relacionado com a utilização de cartões (post-it e outros) para indicar o andamento dos fluxos de produção em empresas de fabricação em série.
+O \textit{Kanban} é uma estrutura popular usada por equipes que praticam o desenvolvimento ágil de software. Ele é extremamente proeminente entre as equipes de software ágil de hoje, mas sua metodologia de trabalho remonta a mais de 50 anos.
 
-Nesses cartões são colocadas indicações sobre uma determinada tarefa, por exemplo, “para executar”, “em andamento” ou “finalizado”.
-A utilização de um sistema \textit{Kanban} permite um controle detalhado de produção com informações sobre quando, quanto e o que produzir.
+No fim dos anos 1940, a Toyota começou a otimizar seus processos de engenharia com base no mesmo modelo que os supermercados usavam para abastecer suas prateleiras. Os supermercados abastecem apenas a quantidade de produtos suficiente para atender à demanda dos consumidores, uma prática que otimiza o fluxo entre o supermercado e o consumidor.
 
-O método \textit{Kanban} foi inicialmente aplicado em empresas japonesas de fabricação em série e está estreitamente ligado ao conceito de “\textit{just in time}”, que significa “no momento certo”. É um modelo japonês que procura eliminar estoques e agilizar a produção.
-A empresa japonesa de automóveis Toyota foi a responsável pela introdução desse método devido a necessidade de manter um eficaz funcionamento do sistema de produção em série.
+Com o \textit{kanban}, as equipes de desenvolvimento ágil de software são capazes de aproveitar os princípios do JIT - \textit{just in time}, combinando a quantia do trabalho em andamento com a capacidade da equipe \cite{kanban1}.
 
-O \textit{Kanban} eletrônico (\textit{e-Kanban}) é utilizado em substituição ao método físico, evitando alguns problemas como a perda de cartões e proporcionando mais rapidez na atualização do quadro de tarefas.\cite{kanban}
+O \textit{Kanban} eletrônico (\textit{e-Kanban}) é utilizado em substituição ao método físico, evitando alguns problemas como a perda de cartões e proporcionando mais rapidez na atualização do quadro de tarefas \cite{kanban}.
 
 
 
@@ -241,12 +236,10 @@ alcançados através de um pequeno conjunto de valores, princípios
 e práticas, serão utilizados neste trabalho:
 
   \begin{itemize}
-  \item Reuniões frequentes com os stakeholders(orientador e coorientador).
+  \item Reuniões frequentes com os stakeholders (orientador).
   \item Design Incremental: O objetivo é criar a solução mais simples possível
-  que seja suficiente para implementar as funcionalidades de cada iteração.
-  \cite{praticaXp}
-  \item Versionamento de código.
-  \cite{praticaXp}
+  que seja suficiente para implementar as funcionalidades de cada iteração \cite{praticaXp}.
+  \item Versionamento de código \cite{praticaXp}.
   \end{itemize}
 
   \section{Aquisição de dados com Sensores}
@@ -254,17 +247,14 @@ e práticas, serão utilizados neste trabalho:
 
     Sensor pode ser entendido como dispositivo eletrônico que é sensível a determinada
   condição do ambiente, desde luminosidade, temperatura até a aceleração própria.
-  No sistema desenvolvido junto a este trabalho é usado o kinect(\ref{sub:kinect}).
+  No sistema desenvolvido junto a este trabalho é usado o kinect (\ref{sub:kinect}).
 
 
   \section{Processamento de sinais}
   \label{sec:processamentoSinais}
   Processamento de sinais consiste na análise e/ou modificação de sinais
 (sequências discretas de números) de forma a extrair
-informações dos mesmos e/ou torná-los mais apropriados para alguma aplicação específica.\cite{processamentoSinais}
-
-    Neste trabalho, os dados obtidos através do sensor serão tratados e processados dentro do Unity 3d(\ref{sub:unity3d}), através de suas bibliotecas e com o auxílio da
-   linguagem C\#.
+informações dos mesmos e/ou torná-los mais apropriados para alguma aplicação específica \cite{processamentoSinais}.
 
    \section{Articulações no corpo humano}
    \label{sec:Juntas no corpo humano}
@@ -279,7 +269,7 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
 
    \begin{table}[H]
    \centering
-   \caption{Articulações no corpo}
+   \caption{Articulações no corpo. Fonte: \cite{manualGoniometria}.}
    \label{Juntas no corpo}
    \begin{tabular}{|c|c|c|}
    \hline
@@ -299,6 +289,16 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
                                & Extensão        & 0-70               \\ \cline{2-3}
                                & Adução          & 0-45               \\ \cline{2-3}
    \multirow{-4}{*}{Punho}     & Abdução         & 0-20               \\ \hline
+                               & Flexão          & 0-125               \\ \cline{2-3}
+                               & Extensão        & 0-10               \\ \cline{2-3}
+                               & Adução          & 0-15               \\ \cline{2-3}
+\multirow{-4}{*}{Quadril}      & Abdução         & 0-45               \\ \hline
+Joelho  & Flexão        & 0-140              \\ \hline
+                            & Flexão dorsal         & 0-20               \\ \cline{2-3}
+                            & Flexão plantar        & 0-40               \\ \cline{2-3}
+                            & Adução          & 0-40               \\ \cline{2-3}
+\multirow{-4}{*}{Tornozelo}     & Abdução         & 0-20               \\ \hline
+
    \end{tabular}
    \end{table}
 
@@ -309,7 +309,7 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
   boneco de pano (\textit{ragdoll effects}). A posição inicial de Referência é a
   a posição em T (\textit{T pose}). O unity não limita a angulação da articulação,
   deixando isso na mão do desenvolvedor, porém eles orientam ângulos máximos
-  para estabilizar melhor seu avatar 3d\cite{unity3dManual}.
+  para estabilizar melhor seu avatar 3d \cite{unity3dManual}.
 
 
   \section{Interação humano-computador}
@@ -319,17 +319,17 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
   artes, design, ergonomia, psicologia, sociologia, semiótica, linguística, e áreas afins.
   A interação entre humanos e máquinas acontece através da interface do utilizador,
   formada por software e hardware. Ela é utilizada, por exemplo, para algumas manipulações
-  de periféricos de computadores e grandes máquinas\cite{ihc}.
+  de periféricos de computadores e grandes máquinas \cite{ihc}.
 
   A fim de facilitar a visualização dos movimentos e a interação com o sistema, optou-se por uma interface semelhante a jogos.
   Avatares customizados repetem os movimentos tornando os exercícios menos tediosos e mais lúdicos. Para este processo, utilizou-se
-  o Unity 3d(\ref{sub:unity3d}).
+  o Unity 3d (\ref{sub:unity3d}).
 
-  \section{Restrição - Tempo real}
+  \section{Restrição - \textit{Streaming}}
   \label{sec:restrição}
     Todo o processo desde a aquisição do movimento ao processamento do sinal e a
   resposta para o usuário pode ser feito sequencialmente, porém ele deve dar o
-  retorno em tempo real para que o usuário possa corrijir a movimentação e se
+  retorno em  \textit{streaming}, para que o usuário possa corrijir a movimentação e se
   aproxime da correta execução do movimento. Para isso, temos que levar em conta
   a frequência de aquisição do sensor usado, o tempo do processamento de sinal e
   a frequência de atualização do monitor.
@@ -344,17 +344,17 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
 
   \section{Trabalho relacionado}
   \label{Sec:MetCondTCC}
-    O desenvolvimento deste trabalho foi inspirado no exame de qualificação do Roberto de Souza Baptista\cite{roberto}.
+    O desenvolvimento deste trabalho foi inspirado no algoritmo do Roberto de Souza Baptista \cite{roberto}.
   e podemos afirmar que ele pertence a área da engenharia biomédica. "Classicamente,
   a Engenharia Biomédica é vista como a aplicação dos métodos de distintas áreas
   das Ciências Exatas e de Engenharia no campo das Ciências Médicas e
-  Biológicas."\cite{engenhariaBiomedica}. Ele desenvolve uma abordagem
+  Biológicas" \cite{engenhariaBiomedica}. Ele desenvolve uma abordagem
   inovadora aplicado a terapia de  doenças/acidentes motores, aplicado a
    fiosioterapia. Onde desenvolve uma nova abordagem para análise de movimentos.
 
   \subsection{Protótipo}
   \label{Sec:protótipo}
-    Junto com o exame de qualificação citado anteriormente \cite{roberto}, foi
+    Junto com o algoritmo citado anteriormente \cite{roberto}, foi
   desenvolvido um protótipo no software matlab \cite{matlab}. Esse sistema inicial
   implementou algumas das teorias do exame. Ele possui três etapas: rotular os dados,
   parametrização e utilizar para segmentação automática.
@@ -426,9 +426,9 @@ informações dos mesmos e/ou torná-los mais apropriados para alguma aplicaçã
   \section {Requisitos}
   \label{Sec:Requisitos}
     Um requisito é definido como "uma condição ou uma capacidade com a qual o
-  sistema deve estar de acordo"\cite{requisitos}. Existem vários tipos de
+  sistema deve estar de acordo". Existem vários tipos de
   requisitos. Um modo de categorizá-los é descrito como o modelo
-  FURPS+\cite{robertGrady}.
+  FURPS+ \cite{robertGrady}.
 
   FURPS+ é um sistema para a classificação de requisitos, o acrônimo representa categorias que podem ser usadas na definição de requisitos, assim como representa atributos de Qualidade de Software, sendo ele parte do Rational Unified Process (RUP):
 \begin{itemize}
@@ -457,9 +457,9 @@ O “+” do acrônimo engloba outros requisitos não-funcionais que devem ser l
 
 \end{itemize}
 \item Requisitos de interface – especifica ou restringe as funcionalidades inerentes a interface do sistema com usuário.
-\item Requisitos físicos – especifica uma limitação física pelo hardware utilizado, por exemplo: material, forma, tamanho ou peso. Podendo representar requisitos de hardware, como as configurações físicas de rede obrigatórias.
+\item Requisitos físicos – especifica uma limitação física pelo hardware utilizado, por exemplo: material, forma, tamanho ou peso. Podendo representar requisitos de hardware, como as configurações físicas de rede obrigatórias \cite{rational}.
 \end{itemize}
-\cite{rational}
+
   \section{Arquitetura de software}
   \label{Sec:arquitetura}
     De acordo com a ISO/IEEE 1471-2000 - Arquitetura é a organização fundamental

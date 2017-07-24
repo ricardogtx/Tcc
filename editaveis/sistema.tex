@@ -14,10 +14,10 @@ versão do \textit{kinect} por ser mais facilmente encontrado e por não gerar g
 sua precisão não é perfeita, sofrendo também de limitação por movimentos mais complexos.
 
 Assim sendo, durante a primeira etapa deste trabalho,  foram estudadas algumas tecnologias para a implementação do sistema,
- ficou definido que seria usado o Unity 3d para o desenvolvimento do sistema.
+ ficou definido que seria usado o unity 3d para o desenvolvimento do sistema.
 
 \subsection{Arquitetura}\label{sub:arquitetura}
-  Dentro do Unity 3d não há uma arquitetura específica, isso fica a cargo dos desenvolvedores. Porém podemos dividir o trabalho no unity em duas partes,
+  Podemos dividir o trabalho no unity em duas partes,
 a primeira é a parte de vizualização, onde ele desponibiliza um espaço 3d para a inserção dos \textit{gameObjects} e criação das cenas. Um projeto pode
 ter mais de uma cena e uma cena pode conter vários \textit{gameObjects}. A segunda é com os chamados \textit{scripts}, que são os códigos que podem
 ser adicionados em um \textit{gameObject} dando-lhe a lógica de como se deve comportar durante uma cena de um projeto. Esses códigos podem ser escritos
@@ -32,20 +32,42 @@ nas linguagens \textit{javascript} e em C\#. Podemos ver uma representação da 
   \label{diagramaClasse}
   \end{figure}
 
-  A arquitetura de script, ficou um pouco focada na classe \textit{KinectManager}, pois ela é a responsável pela comunicação com o kinect.
-Nas próximas seções, falaremos um pouco sobre o papel de cada classe:
+  Abaixo vemos uma representação da sequência de mensagens do sistema.
 
-\subsection{\textit{KinectManage}}\label{sub:kmanager}
+
+      \begin{figure}[H]
+      \centering
+      \includegraphics [keepaspectratio=true,scale=0.45]{figuras/diagramaFisio.eps}
+
+      \caption{Diagrama de sequência referente ao uso do fisioterapeuta}
+      \label{diagramaFisio}
+      \end{figure}
+
+
+      \begin{figure}[H]
+      \centering
+      \includegraphics [keepaspectratio=true,scale=0.45]{figuras/diagramaPaciente.eps}
+
+      \caption{Diagrama de sequência referente ao uso do paciente}
+      \label{diagramaPaciente}
+      \end{figure}
+
+
+
+  A arquitetura dos scripts, ficou um pouco focada na classe \textit{KinectManager}, pois ela é a responsável pela comunicação com o kinect.
+Nas próximas seções, falaremos um pouco sobre o papel de cada classe.
+
+\subsection{\textit{KinectManager}}\label{sub:kmanager}
   Classe implementada em C\# e tem como principal responsabilidade gerir a comunicação com o kinect. Com a ajuda da classe \textit{KinectWrapper}(\ref{sub:kwrapper}), ela
   abstrai as funções, estruturas e recursos do Kinect. Esta classe possui várias funções, abaixo descrevemos as principais:
 
   \begin{itemize}
       \item \textit{\textbf{ProcessSkeleton()}}: Processa os dados do "esqueleto", dados sobre as posições e rotações das juntas do usuário;
-      \item \textit{\textbf{GetjointPosition()}}: Pega os dados sobre as posições das juntas para animação do avatar 3d;
+      \item \textit{\textbf{HandlejointPosition()}}: Pega os dados sobre as posições das juntas para animação do avatar 3d;
 
   \end{itemize}
 
-\subsection{\textit{GetCsv}}\label{sub:getcsv}
+\subsection{\textit{HandletCsv}}\label{sub:getcsv}
   Classe implementada em C\# e tem como principal responsabilidade fazer o parser do arquivo csv do movimento desejado. Abaixo descrevemos sua principal função:
 
   \begin{itemize}
@@ -62,9 +84,10 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe:
 
   \end{itemize}
 
-  subsection{\textit{StoredMovimentAvatarController}}\label{sub:storedavatarc}
-    Classe implementada em C\# e tem como principal responsabilidade movimentar o avatar, porém de acordo com o movimento parseado. Ela possui as mesmas funções da
-  \textit{AvatarController}(\ref{sub:avatarc}).
+  \subsection{\textit{StoredMovimentAvatarController}}\label{sub:storedavatarc}
+    Classe implementada em C\# e tem como principal responsabilidade movimentar o avatar, porém de acordo com o movimento parseado. Além de possuir as mesmas funções da
+  \textit{AvatarController}(\ref{sub:avatarc}), essa classe também é a responsável de fazer a comparação do movimento do usuário com o movimento salvo. A principal função
+  responsável por fazer esta comparação é a \textit{CalculeAngle()}, que espera como argumento a posição de três juntas interligadas ( três vetores -\textit{Vector3}) e retorna o ângulo entre elas.
 
   \subsection{\textit{GetJointPosition}}\label{sub:getjoint}
     Classe implementada em C\# e tem como principal responsabilidade escrever as posições de todas as juntas e exportar para csv. Com a ajuda da classe \textit{KinectManager}(\ref{sub:kmanager}),
@@ -90,12 +113,12 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe:
    \begin{itemize}
    \item \textbf{Funcionalidade}(Functionality):
      \begin{itemize}
-     \item Software para auxilar o acompanhamento de pacientes em reabilitação
-     motora de movimentos específicos.
-     \item É realizado por meio de comparação do movimento das articulações do
-      corpo humano em tempo real, com uma base de articulações com os movimentos
-     previamente estabelicidos.
-     \item Apresenta um conjunto de movimentos gravados para seleção e execução.
+     \item Captura do movimento do usuário pelo sistema (leitura dos ângulos das articulações);
+     \item Importação de movimento;
+     \item Apresentação de uma lista de movimentos gravados para seleção e execução;
+     \item Animação do avatar com o movimento correto;
+     \item Comparação das articulações de referência com os realizados pelo usuário;
+     \item Exibição no avatar 3d as discrepâncias entre o movimento desejado e o movimento realizado.
      \end{itemize}
    \item \textbf{Usabilidade}(Usability)
      \begin{itemize}
@@ -113,7 +136,7 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe:
      \end{itemize}
   \item \textbf{Desempenho}(Performance)
      \begin{itemize}
-     \item O sistema analisará o movimento feito pelo usuário em tempo real.
+     \item O sistema analisará o movimento feito pelo usuário em streaming.
      \end{itemize}
   \item \textbf{Suportabilidade}(Supportability)
      \begin{itemize}
@@ -163,7 +186,7 @@ O Unity 3d pode ser encontrado \href{https://unity3d.com/pt/get-unity/download}{
 a opção de instalar o visual studio mais recente, é aconselhável aceitar pois este é um editor de texto com várias funções para a edição
 de arquivos C\#.
 
-\subsection{Utilizndo o Unity 3d}
+\subsection{Utilizando o Unity 3d}
   Após a instalação de ambas as tecnologias, na primeira vez em que se abre o unity 3d é necessário fazer um cadastro para sua utilização. Feito
 o cadastro:
 \begin{enumerate}
@@ -173,6 +196,53 @@ o cadastro:
 
   Pronto, agora será possível mexer no projeto pelo unity 3d. Para abrir o projeto no visual studio é somente clicar com o botão direito em cima
 da cena desejada e clicar em "\textit{Open C\# Project}".
+
+\subsection{Histórias de usuário do sistema}
+\label{sec:Histórias de usuário}
+  Como prática ágil as \textit{User stories} (Histórias de usuário), são artefatos
+de desenvolvimento, utilizadas para organizar requisitos. Tem-se foco nos objetivos
+do usuário e como o sistema alcança esses objetivos.
+
+  Para melhor organizar e fracionar os requisitos deste trabalho, foi adotado
+essa prática ágil, podemos ver o levantamento das histórias de usuário na tabela Histórias(\ref{historias}).
+\begin{table}[H]
+\centering
+\caption{Histórias}
+\label{historias}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{História} & 1                                                        \\ \hline
+\textbf{Eu como}  & Fisioterapeuta                    \\ \hline
+\textbf{Desejo}   & Que o sistema mapeie meu movimento sendo executado corretatmente                   \\ \hline
+\textbf{Para}     & poder comparar com o movimento do paciente \\ \hline
+ \multicolumn{2}{|l|}{}                                                       \\ \hline
+\textbf{História} & 2                                                        \\ \hline
+\textbf{Eu como}  & Usuário                                    \\ \hline
+\textbf{Desejo}   & Poder carregar movimento previamente mapeado                \\ \hline
+\textbf{Para}     & Constar no menu do sistema\\ \hline
+\multicolumn{2}{|l|}{}                                                       \\ \hline
+\textbf{História} & 3                                                        \\ \hline
+\textbf{Eu como}  & Fisioterapeuta                    \\ \hline
+\textbf{Desejo}   & Que o sistema salve um novo movimento                    \\ \hline
+\textbf{Para}     & Poder constar no menu do sistema e poder ser executado \\ \hline
+\multicolumn{2}{|l|}{}                                                       \\ \hline
+\textbf{História} & 4                                                        \\ \hline
+\textbf{Eu como}  & Usuário                                                  \\ \hline
+\textbf{Desejo}   & Desejo escolher movimento de referência                  \\ \hline
+\textbf{Para}     & Melhor seguir receita médica                             \\ \hline
+\multicolumn{2}{|l|}{}                                                       \\ \hline
+
+\textbf{História} & 5                                                        \\ \hline
+\textbf{Eu como}  & Usuário                                                  \\ \hline
+\textbf{Desejo}   & Feedback do movimento sendo executado em tempo real                    \\ \hline
+\textbf{Para}     & Poder melhor executar os movimentos das articulações           \\ \hline
+\multicolumn{2}{|l|}{}                                                       \\ \hline
+
+\end{tabular}
+\end{table}
+
+  Tais histórias compões as funcionalidades do sistema(\ref{sub:features}) e foram implementadas no Unity 3d.
+
 
  \section{Funcionalidades do sistema - \textit{features}}\label{sub:features}
      As \textit{features} no desenvolvimento ágil é um pedaço de funcionalidade que oferece valor comercial \cite{versionOne}.
@@ -241,48 +311,3 @@ da cena desejada e clicar em "\textit{Open C\# Project}".
 
 
    Podemos ver o detalhamento das features em Histórias de usuário do sistema(\ref{historias}).
- \subsection{Histórias de usuário do sistema}
- \label{sec:Histórias de usuário}
-   Como prática ágil as \textit{User stories}(Histórias de usuário), são artefatos
- de desenvolvimento, utilizadas para organizar requisitos. Tem-se foco nos objetivos
- do usuário e como o sistema alcança esses objetivos.
-
-   Para melhor organizar e fracionar os requisitos deste trabalho, foi adotado
- essa prática ágil, podemos ver o levantamento das histórias de usuário na tabela Histórias(\ref{historias}).
- \begin{table}[H]
- \centering
- \caption{Histórias}
- \label{historias}
- \begin{tabular}{|l|l|}
- \hline
- \textbf{História} & 1                                                        \\ \hline
- \textbf{Eu como}  & Fisioterapeuta                    \\ \hline
- \textbf{Desejo}   & Que o sistema mapeie meu movimento sendo executado corretatmente                   \\ \hline
- \textbf{Para}     & poder comparar com o movimento do paciente \\ \hline
-  \multicolumn{2}{|l|}{}                                                       \\ \hline
- \textbf{História} & 2                                                        \\ \hline
- \textbf{Eu como}  & Usuário                                    \\ \hline
- \textbf{Desejo}   & Poder carregar movimento previamente mapeado                \\ \hline
- \textbf{Para}     & Constar no menu do sistema\\ \hline
- \multicolumn{2}{|l|}{}                                                       \\ \hline
- \textbf{História} & 3                                                        \\ \hline
- \textbf{Eu como}  & Fisioterapeuta                    \\ \hline
- \textbf{Desejo}   & Que o sistema salve um novo movimento                    \\ \hline
- \textbf{Para}     & Poder constar no menu do sistema e poder ser executado \\ \hline
- \multicolumn{2}{|l|}{}                                                       \\ \hline
- \textbf{História} & 4                                                        \\ \hline
- \textbf{Eu como}  & Usuário                                                  \\ \hline
- \textbf{Desejo}   & Desejo escolher movimento de referência                  \\ \hline
- \textbf{Para}     & Melhor seguir receita médica                             \\ \hline
- \multicolumn{2}{|l|}{}                                                       \\ \hline
-
- \textbf{História} & 5                                                        \\ \hline
- \textbf{Eu como}  & Usuário                                                  \\ \hline
- \textbf{Desejo}   & Feedback do movimento sendo executado em tempo real                    \\ \hline
- \textbf{Para}     & Poder melhor executar os movimentos das articulações           \\ \hline
- \multicolumn{2}{|l|}{}                                                       \\ \hline
-
- \end{tabular}
- \end{table}
-
-   Tais histórias compões as funcionalidades do sistema(\ref{sub:features}) e foram implementadas no Unity 3d.
