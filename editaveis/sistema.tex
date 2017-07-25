@@ -14,11 +14,11 @@ versão do \textit{kinect} por ser mais facilmente encontrado e por não gerar g
 sua precisão não é perfeita, sofrendo também de limitação por movimentos mais complexos.
 
 Assim sendo, durante a primeira etapa deste trabalho,  foram estudadas algumas tecnologias para a implementação do sistema,
- ficou definido que seria usado o unity 3d para o desenvolvimento do sistema.
+ ficou definido que seria usado o unity 3D para o desenvolvimento do sistema.
 
 \subsection{Arquitetura}\label{sub:arquitetura}
   Podemos dividir o trabalho no unity em duas partes,
-a primeira é a parte de vizualização, onde ele desponibiliza um espaço 3d para a inserção dos \textit{gameObjects} e criação das cenas. Um projeto pode
+a primeira é a parte de vizualização, onde ele desponibiliza um espaço 3D para a inserção dos \textit{gameObjects} e criação das cenas. Um projeto pode
 ter mais de uma cena e uma cena pode conter vários \textit{gameObjects}. A segunda é com os chamados \textit{scripts}, que são os códigos que podem
 ser adicionados em um \textit{gameObject} dando-lhe a lógica de como se deve comportar durante uma cena de um projeto. Esses códigos podem ser escritos
 nas linguagens \textit{javascript} e em C\#. Podemos ver uma representação da arquitetura em \ref{diagramaClasse}.
@@ -54,7 +54,7 @@ nas linguagens \textit{javascript} e em C\#. Podemos ver uma representação da 
 
 
 
-  A arquitetura dos scripts, ficou um pouco focada na classe \textit{KinectManager}, pois ela é a responsável pela comunicação com o kinect.
+  A arquitetura dos scripts ficou focada na classe \textit{KinectManager}, pois ela é a responsável pela comunicação com o kinect.
 Nas próximas seções, falaremos um pouco sobre o papel de cada classe.
 
 \subsection{\textit{KinectManager}}\label{sub:kmanager}
@@ -63,7 +63,7 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe.
 
   \begin{itemize}
       \item \textit{\textbf{ProcessSkeleton()}}: Processa os dados do "esqueleto", dados sobre as posições e rotações das juntas do usuário;
-      \item \textit{\textbf{HandlejointPosition()}}: Pega os dados sobre as posições das juntas para animação do avatar 3d;
+      \item \textit{\textbf{HandlejointPosition()}}: Pega os dados sobre as posições das juntas para animação do avatar 3D;
 
   \end{itemize}
 
@@ -75,11 +75,11 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe.
   \end{itemize}
 
 \subsection{\textit{AvatarController}}\label{sub:avatarc}
-  Classe implementada em C\# e tem como principal responsabilidade animar o avatar 3d de acordo com a movimentação do usuário em tempo real. Com a ajuda da classe \textit{KinectManager}(\ref{sub:kmanager}), ela
+  Classe implementada em C\# e tem como principal responsabilidade animar o avatar 3D de acordo com a movimentação do usuário em tempo real. Com a ajuda da classe \textit{KinectManager}(\ref{sub:kmanager}), ela
   converte a posição das juntas para animação do avatar. Esta classe possui várias funções, abaixo descrevemos as principais:
 
   \begin{itemize}
-      \item \textit{\textbf{UpdateAvatar()}}: Processa os dados das juntas do usuário, convertendo essas informações por frame para animação 3d;
+      \item \textit{\textbf{UpdateAvatar()}}: Processa os dados das juntas do usuário, convertendo essas informações por frame para animação 3D;
       \item \textit{\textbf{TransformBone()}}: Aplica as rotações monitoradas pelo \textit{kinect} para as juntas do avatar.;
 
   \end{itemize}
@@ -118,12 +118,12 @@ Nas próximas seções, falaremos um pouco sobre o papel de cada classe.
      \item Apresentação de uma lista de movimentos gravados para seleção e execução;
      \item Animação do avatar com o movimento correto;
      \item Comparação das articulações de referência com os realizados pelo usuário;
-     \item Exibição no avatar 3d as discrepâncias entre o movimento desejado e o movimento realizado.
+     \item Exibição no avatar 3D as discrepâncias entre o movimento desejado e o movimento realizado.
      \end{itemize}
    \item \textbf{Usabilidade}(Usability)
      \begin{itemize}
      \item O usuário do sistema será capaz de visualizar todo tipo de informação
-      textual, imagem ou modelo 3d na aplicação , com clareza, em qualquer
+      textual, imagem ou modelo 3D na aplicação , com clareza, em qualquer
      monitor independente de resolução.
      %\item Documentação ampla e de fácil compreensão, abordando todas as
      %funcionalidades disponível na aplicação.
@@ -177,24 +177,24 @@ está comunicando com o sensor alguns passos devem ser seguidos:
 \label{gerenciadorDispositivo}
 \end{figure}
 
-\subsection{Instalação do Unity 3d}\label{sub:instalacaoUnity}
-  Como já dito no capítulo Suporte Tecnológico(\ref{ch:suporteTecnologico}), o Unity 3d é um motor gráfico, criado para jogos em três dimensões e duas dimensões,
+\subsection{Instalação do Unity 3D}\label{sub:instalacaoUnity}
+  Como já dito no capítulo Suporte Tecnológico(\ref{ch:suporteTecnologico}), o Unity 3D é um motor gráfico, criado para jogos em três dimensões e duas dimensões,
 sendo a principal tecnologia usado para o desenvolvimento do sistema, para cálculos das juntas e para o \textit{feedback} ao usuário.
-O Unity 3d pode ser encontrado \href{https://unity3d.com/pt/get-unity/download}{aqui}\footnote{https://unity3d.com/pt/get-unity/download}.
+O Unity 3D pode ser encontrado \href{https://unity3D.com/pt/get-unity/download}{aqui}\footnote{https://unity3D.com/pt/get-unity/download}.
 
-  Ao instalar o unity 3d, o instalador dará
+  Ao instalar o unity 3D, o instalador dará
 a opção de instalar o visual studio mais recente, é aconselhável aceitar pois este é um editor de texto com várias funções para a edição
 de arquivos C\#.
 
-\subsection{Utilizando o Unity 3d}
-  Após a instalação de ambas as tecnologias, na primeira vez em que se abre o unity 3d é necessário fazer um cadastro para sua utilização. Feito
+\subsection{Utilizando o Unity 3D}
+  Após a instalação de ambas as tecnologias, na primeira vez em que se abre o unity 3D é necessário fazer um cadastro para sua utilização. Feito
 o cadastro:
 \begin{enumerate}
-  \item Na primeira janela do unity 3d é perguntado se deseja criar um novo projeto ou importar, clique em importar
+  \item Na primeira janela do unity 3D é perguntado se deseja criar um novo projeto ou importar, clique em importar
   \item Procure o local onde se encontra a pasta do projeto e importe.
 \end{enumerate}
 
-  Pronto, agora será possível mexer no projeto pelo unity 3d. Para abrir o projeto no visual studio é somente clicar com o botão direito em cima
+  Pronto, agora será possível mexer no projeto pelo unity 3D. Para abrir o projeto no visual studio é somente clicar com o botão direito em cima
 da cena desejada e clicar em "\textit{Open C\# Project}".
 
 \subsection{Histórias de usuário do sistema}
@@ -241,7 +241,7 @@ essa prática ágil, podemos ver o levantamento das histórias de usuário na ta
 \end{tabular}
 \end{table}
 
-  Tais histórias compões as funcionalidades do sistema(\ref{sub:features}) e foram implementadas no Unity 3d.
+  Tais histórias compões as funcionalidades do sistema(\ref{sub:features}) e foram implementadas no Unity 3D.
 
 
  \section{Funcionalidades do sistema - \textit{features}}\label{sub:features}

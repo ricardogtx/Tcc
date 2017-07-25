@@ -204,9 +204,9 @@ engenharia de software  aprendidas e utilizadas durante o curso, serão empregad
 auxílio do desenvolvimento deste trabalho.
 \subsection{Manifesto Ágil}
 \label{sec:Manifesto Ágil}
-  O manifesto ágil foi criado em 2001 e descreve um conjunto de abordagens para
-desenvolvimento de software.
-  Seus principais valores são:
+  Afim de utilizar melhores maneiras para o desenvovlimento deste trabalho, foram utilizados alguns valores ágeis, onde podem ser encontrados
+  no manifesto ágil. O manifesto ágil foi criado em 2001 e descreve um conjunto de abordagens para
+desenvolvimento de software. Seus principais valores são:
   \begin{itemize}
   \item Indivíduos e interações a processos e ferramentas;
   \item Software funcionando a documentação compreensiva;
@@ -217,7 +217,7 @@ desenvolvimento de software.
 
 \subsection{\textit{Kanban}}
 \label{sec:kanban}
-O \textit{Kanban} é uma estrutura popular usada por equipes que praticam o desenvolvimento ágil de software. Ele é extremamente proeminente entre as equipes de software ágil de hoje, mas sua metodologia de trabalho remonta a mais de 50 anos.
+O \textit{Kanban} é uma metodologia popular usada por equipes que praticam o desenvolvimento ágil de software. Ele é extremamente proeminente entre as equipes de software ágil de hoje, mas sua metodologia de trabalho remonta a mais de 50 anos.
 
 No fim dos anos 1940, a Toyota começou a otimizar seus processos de engenharia com base no mesmo modelo que os supermercados usavam para abastecer suas prateleiras. Os supermercados abastecem apenas a quantidade de produtos suficiente para atender à demanda dos consumidores, uma prática que otimiza o fluxo entre o supermercado e o consumidor.
 
@@ -303,13 +303,13 @@ Joelho  & Flexão        & 0-140              \\ \hline
    \end{table}
 
 
-  \subsection{Articulações no Unity 3d}
-  \label{sec:Articulacoes no Unity 3d}
+  \subsection{Articulações no Unity 3D}
+  \label{sec:Articulacoes no Unity 3D}
     Também chamadas de character joint elas são usadas para o chamado efeito
   boneco de pano (\textit{ragdoll effects}). A posição inicial de Referência é a
   a posição em T (\textit{T pose}). O unity não limita a angulação da articulação,
   deixando isso na mão do desenvolvedor, porém eles orientam ângulos máximos
-  para estabilizar melhor seu avatar 3d \cite{unity3dManual}.
+  para estabilizar melhor seu avatar 3D \cite{unity3DManual}.
 
 
   \section{Interação humano-computador}
@@ -323,13 +323,12 @@ Joelho  & Flexão        & 0-140              \\ \hline
 
   A fim de facilitar a visualização dos movimentos e a interação com o sistema, optou-se por uma interface semelhante a jogos.
   Avatares customizados repetem os movimentos tornando os exercícios menos tediosos e mais lúdicos. Para este processo, utilizou-se
-  o Unity 3d (\ref{sub:unity3d}).
+  o Unity 3D (\ref{sub:unity3D}).
 
   \section{Restrição - \textit{Streaming}}
   \label{sec:restrição}
     Todo o processo desde a aquisição do movimento ao processamento do sinal e a
-  resposta para o usuário pode ser feito sequencialmente, porém ele deve dar o
-  retorno em  \textit{streaming}, para que o usuário possa corrijir a movimentação e se
+  resposta para o usuário  deve ser em \textit{streaming}, para que o usuário possa corrijir a movimentação e se
   aproxime da correta execução do movimento. Para isso, temos que levar em conta
   a frequência de aquisição do sensor usado, o tempo do processamento de sinal e
   a frequência de atualização do monitor.
@@ -338,7 +337,7 @@ Joelho  & Flexão        & 0-140              \\ \hline
   aquisição de quadros de 30Hz, junto a um monitor com taxa de atualização de imagem
   para o usuário a 30Hz, assim a aproximadamente 33 milisegundos o
   sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso
-   restringe o processamento do sinal a 33 milissegundo de um input a outro, e
+   restringe o processamento do sinal a 33 milissegundos de um input a outro, e
   também no tempo de atualização da imagem exibida para que não haja perda na
   fluidez e nem atraso na correção.
 
