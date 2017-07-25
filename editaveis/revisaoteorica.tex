@@ -3,7 +3,7 @@
   Esse capítulo irá apresentar alguns conceitos que irão sustentar o objetivo deste trabalho.
 Desse modo este capítulo está dividido nas seções: Importância da análise do movimento humano (\ref{sec:importancia}),
 Engenharia de Software (\ref{sec:engenhariaSoft}), Aquisição de dados com Sensores (\ref{sec:aquisicaoSensores}),
-Processamento de sinais (\ref{sec:processamentoSinais}), Articulações no corpo humano (\ref{sec:Juntas no corpo humano}), Interação humano-computador (\ref{sec:ihc}), Restrição - Tempo real (\ref{sec:restrição}),
+Processamento de sinais (\ref{sec:processamentoSinais}), Articulações no corpo humano (\ref{sec:Juntas no corpo humano}), Restrição - Tempo real (\ref{sec:restrição}),
 Trabalho relacionado (\ref{Sec:MetCondTCC}), Requisitos (\ref{Sec:Requisitos}) e Arquitetura de software (\ref{Sec:arquitetura}).
 
 \section{Importância da análise do movimento humano}\label{sec:importancia}
@@ -311,20 +311,6 @@ Joelho  & Flexão        & 0-140              \\ \hline
   deixando isso na mão do desenvolvedor, porém eles orientam ângulos máximos
   para estabilizar melhor seu avatar 3D \cite{unity3DManual}.
 
-
-  \section{Interação humano-computador}
-  \label{sec:ihc}
-  A interação humano-computador (IHC), é o estudo da interação entre pessoas e computadores.
-  É uma matéria interdisciplinar que relaciona a ciência da computação,
-  artes, design, ergonomia, psicologia, sociologia, semiótica, linguística, e áreas afins.
-  A interação entre humanos e máquinas acontece através da interface do utilizador,
-  formada por software e hardware. Ela é utilizada, por exemplo, para algumas manipulações
-  de periféricos de computadores e grandes máquinas \cite{ihc}.
-
-  A fim de facilitar a visualização dos movimentos e a interação com o sistema, optou-se por uma interface semelhante a jogos.
-  Avatares customizados repetem os movimentos tornando os exercícios menos tediosos e mais lúdicos. Para este processo, utilizou-se
-  o Unity 3D (\ref{sub:unity3D}).
-
   \section{Restrição - \textit{Streaming}}
   \label{sec:restrição}
     Todo o processo desde a aquisição do movimento ao processamento do sinal e a
@@ -336,10 +322,33 @@ Joelho  & Flexão        & 0-140              \\ \hline
     O sensor kinect \cite{microsoftResearch}, tem uma frequência de
   aquisição de quadros de 30Hz, junto a um monitor com taxa de atualização de imagem
   para o usuário a 30Hz, assim a aproximadamente 33 milisegundos o
-  sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso
-   restringe o processamento do sinal a 33 milissegundos de um input a outro, e
+  sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso restringe o processamento do sinal a 33 milissegundos de um input a outro, e
   também no tempo de atualização da imagem exibida para que não haja perda na
-  fluidez e nem atraso na correção.
+  fluidez e nem atraso na correção. As possíveis soluções para processamento de sinal nesse contexto serão apresentados nas seções a seguir.
+
+  \subsection{Sistema de processamento distribuído}\label{distribuirProcessamento}
+  Um sistema de processamento distribuído ou paralelo é um sistema que interliga vários nós de processamento (computadores individuais) de maneira que um processo de grande consumo seja executado no nó mais disponível, ou mesmo subdividido por vários nós. Assim um sistema de processamento distribuído é uma "coleção de computadores independentes entre si que se apresenta ao usuário como um sistema único e coerente" \cite{tanenbaum}. A nomenclatura geralmente utilizada neste contexto é \textit{HPC (High Performance Computing)} e/ou \textit{DPC (Distributed/Parallel Computing)}.
+
+  \subsection{Sistema multiprocessado}\label{multiprocessamento}
+  Um multiprocessador ou sistema multiprocessado é um sistema integrado de computação com as seguintes características:
+\begin{itemize}
+  \item Envolve dois ou mais processadores físicos (sejam processadores separados ou múltiplos núcleos encapsulados no mesmo chip) ou lógicos (processador(es) com a tecnologia \textit{HyperThreading} da Intel) com o mesmo poder computacional e cada um capaz de executar processos autonomamente. Isto implica que não há nenhuma unidade central de controle; cada processador contém sua própria unidade de controle. Assim, efetivamente, a lógica de controle é distribuída pelo sistema.
+
+  \item Os processadores compartilham um único espaço de endereçamento de memória.
+  \item O sistema de hardware é como um todo gerenciado por um único sistema operacional.
+\end{itemize}
+
+  O sistema operacional com suporte a multiprocessamento deve ser capaz de:
+  \begin{itemize}
+    \item suportar multitarefa;
+    \item manter múltiplas filas de processos, uma para cada processador \cite{os}.
+
+  \end{itemize}
+
+  \subsection{Processamento massivamente paralelo}\label{massivamenteParalelo}
+  Processamento massivamente paralelo refere-se ao uso de um grande número de processadores (ou computadores separados) para executar um conjunto de cálculos coordenados em paralelo (simultaneamente), semelhante ao processamento distribuído \ref{distribuirProcessamento}.
+
+  Em uma abordagem, por exemplo, na computação em grade, o poder de processamento de um grande número de computadores em domínios administrativos distribuídos e diversos , é oportunisticamente usado sempre que um computador está disponível.
 
   \section{Trabalho relacionado}
   \label{Sec:MetCondTCC}
