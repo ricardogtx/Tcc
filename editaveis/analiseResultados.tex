@@ -1,3 +1,4 @@
+
 \chapter[Análise dos Resultados]{Análise dos Resultados}\label{ch:analiseResultados}
   Este capítulo tem como objetivo discutir  os resultados obtidos durante a realização dos testes. Dentre estes
 resultados, estão presentes as fontes de erros levantadas com a experiência do desenvolvimento,
@@ -14,7 +15,7 @@ uma análise dos resultados da utilização do sistema no contexto da reabilita�
  Os casos de testes funcionais consistem em cinco situações, nas quais a solução foi analisada,
 variando entre elas o movimento e ambiente. Buscando analisar os resultados obtidos em cada contexto.
 
-  Os dados obtidos em cada caso de teste está estruturado de acordo com a tabela \ref{tab:analise}.
+  Os dados obtidos em cada caso de teste estão estruturados de acordo com a tabela \ref{tab:analise}.
 
   \begin{table}[H]
   \centering
@@ -271,7 +272,7 @@ sobrepostas, mostrando instabilidade como pode ser visto na imagem \ref{img:test
 
   \begin{table}[H]
   \centering
-  \caption{Teste de junta referente a cabeça}
+  \caption{Teste de junta referente a coluna}
   \label{tab:coluna}
   \begin{tabular}{@{}|c|c|l|l|l|@{}}
   \toprule
@@ -442,9 +443,21 @@ durante a realização do desenvolvimento buscou-se minimizar a margem de erro d
   Nesta seção é apresentada outros resultados obtidos ao decorrer do desenvolvimento deste trabalho.
 
 \subsection{Arquitetura completa}\label{sol:arquiCompleta}
-Em proposta apresentada na entrega do primeiro documento, foi apresentada a arquitetura completa, uma arquitetura de módulos, onde cada módulo é responsável
-pelo comportamento de uma parte do sistema. Esta arquitetura se encontra em estado bem inicial, e foi desenvolvida
-em python 3 \cite{pythondoc}. Nela temos 4 (quatro) módulos, sendo eles chamados de:
+Em proposta apresentada na entrega do primeiro documento, foi apresentada a arquitetura completa, uma arquitetura modular, onde cada módulo é responsável
+pelo comportamento de uma parte do sistema, sendo cada módulo processado individualmente, um sistema multiprocessado (\ref{multiprocessamento}).
+
+Essa arquitetura foi
+escolhida por não haver necessidade de várias máquinas ou processadores, diferente de um sistema distribuído (\ref{distribuirProcessamento}) ou um sistema massivamente paralelo (\ref{massivamenteParalelo}),
+e também pelo fato dos processos poderem ser executados ao mesmo tempo sem queda no desempenho, em razão do sistema operacional delegar as instruções a cada núcleo do processador.
+
+O desempenho para o sistema é
+necessário, pois a solução do algoritmo do Baptista \cite{roberto}, necessita de um grande processamento de informações. A não escolha de um sistema multiprocessado,
+impactaria na solução, desencadeando o não cumprimento de alguns requisitos, tais como na usabilidade, dado que a fluídez da movimentação do avatar 3D e captação do movimento do usuário
+seriam afetados, na confiabilidade, já que o sistema não teria desempenho suficiente para se recuperar de falhas, e principalmente na performance do sistema (\ref{sec:requisitosSistema}).
+
+Com isso foi desenvolvido uma solução, contendo 4 (quatro) módulos funcionais, sendo multiprocessados, comunicando-se assincronicamente por
+memória compartilhada. Esta arquitetura se encontra em estado inicial podendo ser encontrada \href{https://gitlab.com/ricardogtx/tcc2}{aqui}\footnote{https://gitlab.com/ricardogtx/tcc2}, sua implementação
+foi feita em python 3 \cite{pythondoc}. Nela temos 4 (quatro) módulos, sendo eles chamados de:
 
 \begin{itemize}
   \item \textbf{Sensor}: Módulo responsável pelo comportamento do sensor;
@@ -453,11 +466,7 @@ em python 3 \cite{pythondoc}. Nela temos 4 (quatro) módulos, sendo eles chamado
   \item \textbf{Armazenamento}: Módulo responsável pelo compartamento de armazenar todas as informações do sistema.
 \end{itemize}
 
-
-Esta arquitetura é \textit{multiprocessing}, ou seja, cada módulo é executado em um processo diferente. Essa abordagem se explica pelo fato do algoritmo do
-Baptista \cite{roberto}, ser em tempo real o que se trata de um processmento muito complexo, necessitanto-se de um processo dedicado. Esta implementação se encontra em estado bem inicial e pode ser encontrada \href{https://gitlab.com/ricardogtx/tcc2}{aqui} \footnote{https://gitlab.com/ricardogtx/tcc2} .
-
-Abaixo mostramos um diagrama de sequências do sistema com essa arquitetura.
+Abaixo é apresentado um diagrama de sequências do sistema que contempla a arquitetura modular.
 
 \begin{figure}[H]
 \centering
@@ -468,49 +477,33 @@ Abaixo mostramos um diagrama de sequências do sistema com essa arquitetura.
 
 \begin{figure}[H]
 \centering
-\includegraphics [keepaspectratio=true,scale=0.38]{figuras/dsPythonExecitar.eps}
+\includegraphics [keepaspectratio=true,scale=0.37]{figuras/dsPythonExecitar.eps}
 \caption{Diagrama de sequência responsável pela troca das mensagens do sistema ao exercitar um movimento.}
 \label{img:dspythone}
 \end{figure}
 
 
+A seguir é apresentado um desenho esquemático da solução já com o Unity 3D integrado.
 
- Essa abordagem não foi implementada por completo, devido ao nível de complexidade em se conseguir produzir um sistema com esses requisitos, no perído disponível para produção. Esta
- abordagem ficou enviável também, devido aos problemas encontrados durante o desenvolvimento deste trabalho, o que será mais explicado em \ref{ch:problemas}.
+\begin{figure}[H]
+\centering
+\includegraphics [keepaspectratio=true,scale=0.8]{figuras/esquemaArquitetura.eps}
+\caption{Desenho da arquietura completa.}
+\label{img:desenhoArquitetura}
+\end{figure}
 
+O objetivo dessa implementação foi verificar a viabilidade da arquietetura proposta. Porém
+pela limitação de tempo, os requisitos foram priorizados, e a solução completa, usando multiprocessamento ficará como issue de melhoria da plataforma proposta.
 
 \section{Análise dos resultados}\label{sol:viabilidade}
-Apesar da análise entre as juntas está sendo feita da maneira mais simples, que é a comparação angular das juntas desejadas, ela conseguiu um resultado satisfatório
-ao analisar os movimentos do usuário, dados as fontes de erro identificadas e tentando minimizá-los, apresentada em \ref{sol:fontesErro}.
+Apesar da análise entre as juntas está sendo realizada de maneira simplificada, comparação angular das juntas desejadas, ela conseguiu um resultado inicial satisfatório
+ao analisar os movimentos do usuário, contudo, apesar dos indicativos de bons resultados, a solução não foi extensamente testada, e os erros nos movimentos das juntas não foram avaliados. Logo tal proposta ainda não está madura para entrar em produção.
 
 Como foi observado ao longo dos testes, o sistema consegue fazer a leitura das juntas  que o \textit{kinect} mapeia, podendo fazer a análise entre o movimento
 salvo com o movimento feito pelo usuário. O sistema junto ao \textit{kinect} se comportam melhor com um ambiente favorável, livre de interferências para o mapeio do sensor
 e onde haja uma boa luz ambiente. Mesmo assim não é possível fazer a análise de todos os graus de movimento das articulações no corpo conforme apresentado em \ref{sec:Juntas no corpo humano}.
 
-  Trabalhando de maneira empírica com o sistema gerado com este trabalho, é possível chegar a uma conclusão positiva quanto a proposta de um produto acessível para a reabilitação motora,
-  podendo servir de auxílio à profissionais da área e também por seus pacientes, porém como foi visto em casos onde é necessáro
-fazer movimentos muito complexos ou que exiga auxílio de objetos, o sistema não se comporta como o esperado. Sendo melhor aplicado a reabilitação onde envolvam crianças, já que torna o processo
+  Trabalhando de maneira empírica com o sistema gerado com este trabalho, é possível encontrar indícios positivos quanto a proposta de um produto acessível para a reabilitação motora,
+  porém não pode-se afirmar que tal solução pode ser usado em produção. Sendo melhor aplicado a reabilitação onde envolvam idosos, já que o sistema apresenta
+  um funcionamento melhor com movimentos lentos, além de tornar o processo
 menos tedioso e mais lúdico. Contudo, pode-se concluir que o sistema gera resultados positivos no processo de reabilitação motora.
-
-\section{Problemas enfrentados}\label{ch:problemas}
-  Esta seção tem como apresentar os problemas enfrentados durante o desenvolvimento,
-  assim como das soluções tomadas.
-\subsection{Multiplataforma}\label{pro:Multiplataforma}
-  Em proposta apresentada na entrega do primeiro documento, foi apresentado que a solução seria multiplataforma,
-apresentando todas as bibliotecas possíveis para tal feito. Porém ao tentar instalar bibliotecas \textit{open soureces}
-para a comunicação do PC com o sistema operacional Linux, distribuição Debian, notou-se que as bibliotecas não
-estavam mais sendo mantidas, com atualizações datando de mais de 3 anos.
-
-  Contudo ainda fez-se várias tentativas e por muito tempo,
-a instalação e comunicação com o kinect e Linux, todavia havia dependências de pacotes em versões que não eram mais
-mantidas no repositório do Debian, assim buscou-se alternativas para instalação de tais pacotes, aumentando o efeito cascata
-de dependências de pacotes não mais mantidos, despendindo muito tempo e como resultado insucesso.
-
-  Por final decidiu-se usar somente o sistema operacional da Microsoft o windows, com uma facilitada comunicação
-kinect e sistema operacional através de \textit{SDK(Software Development Kit)}
-
-
-\subsection{Conhecimento das tecnologias utilizadas}\label{pro:conhecimento}
-  O autor pesquisador e desenvolvedor do sistema, não possuia conhecimento prévio de nenhuma das
-tecnologias utilizadas, o Unity 3D e na linguagem C\#, com isso a velocidade do desenvolvimento ficou afetada
-e possivelmente alguma decisão arquitetural não tenha sido a melhor.

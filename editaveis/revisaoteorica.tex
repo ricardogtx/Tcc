@@ -313,9 +313,9 @@ Joelho  & Flexão        & 0-140              \\ \hline
 
   \section{Restrição - \textit{Streaming}}
   \label{sec:restrição}
-    Todo o processo desde a aquisição do movimento ao processamento do sinal e a
-  resposta para o usuário  deve ser em \textit{streaming}, para que o usuário possa corrijir a movimentação e se
-  aproxime da correta execução do movimento. Para isso, temos que levar em conta
+    Todo o processo, desde a aquisição do movimento ao processamento do sinal e a
+  resposta para o usuário, deve ser em \textit{streaming}, para que o usuário possa corrijir a movimentação e se
+  aproximar da correta execução do movimento. Para isso, temos que levar em conta
   a frequência de aquisição do sensor usado, o tempo do processamento de sinal e
   a frequência de atualização do monitor.
 
@@ -324,15 +324,17 @@ Joelho  & Flexão        & 0-140              \\ \hline
   para o usuário a 30Hz, assim a aproximadamente 33 milisegundos o
   sistema recebe um input do sensor e tem que em seguida apresentar um output. Isso restringe o processamento do sinal a 33 milissegundos de um input a outro, e
   também no tempo de atualização da imagem exibida para que não haja perda na
-  fluidez e nem atraso na correção. As possíveis soluções para processamento de sinal nesse contexto serão apresentados nas seções a seguir.
+  fluidez e nem atraso na correção. As possíveis soluções para processamento de sinal nesse contexto serão apresentados nas seções seguintes.
 
-  \subsection{Sistema de processamento distribuído}\label{distribuirProcessamento}
-  Um sistema de processamento distribuído ou paralelo é um sistema que interliga vários nós de processamento (computadores individuais) de maneira que um processo de grande consumo seja executado no nó mais disponível, ou mesmo subdividido por vários nós. Assim um sistema de processamento distribuído é uma "coleção de computadores independentes entre si que se apresenta ao usuário como um sistema único e coerente" \cite{tanenbaum}. A nomenclatura geralmente utilizada neste contexto é \textit{HPC (High Performance Computing)} e/ou \textit{DPC (Distributed/Parallel Computing)}.
+  \subsection{Sistema distribuído}\label{distribuirProcessamento}
+  Um sistema distribuído, sistema de processamento distribuído ou paralelo, é um sistema que interliga vários nós de processamento (computadores individuais) de maneira que um processo de grande consumo seja executado no nó mais disponível, ou mesmo subdividido por vários nós. Assim um sistema de processamento distribuído é uma "coleção de computadores independentes entre si que se apresenta ao usuário como um sistema único e coerente" \cite{tanenbaum}. A nomenclatura geralmente utilizada neste contexto é \textit{HPC (High Performance Computing)} e/ou \textit{DPC (Distributed/Parallel Computing)}.
 
   \subsection{Sistema multiprocessado}\label{multiprocessamento}
   Um multiprocessador ou sistema multiprocessado é um sistema integrado de computação com as seguintes características:
 \begin{itemize}
-  \item Envolve dois ou mais processadores físicos (sejam processadores separados ou múltiplos núcleos encapsulados no mesmo chip) ou lógicos (processador(es) com a tecnologia \textit{HyperThreading} da Intel) com o mesmo poder computacional e cada um capaz de executar processos autonomamente. Isto implica que não há nenhuma unidade central de controle; cada processador contém sua própria unidade de controle. Assim, efetivamente, a lógica de controle é distribuída pelo sistema.
+  \item Envolve dois ou mais processadores físicos (sejam processadores separados ou múltiplos núcleos encapsulados no mesmo chip) ou lógicos
+   (processador(es) com a tecnologia \textit{HyperThreading} da Intel) com o mesmo poder computacional e cada um capaz de executar processos autonomamente.
+   Isto implica que não há nenhuma unidade central de controle, cada processador contém sua própria unidade de controle. Assim, efetivamente, a lógica de controle é distribuída pelo sistema.
 
   \item Os processadores compartilham um único espaço de endereçamento de memória.
   \item O sistema de hardware é como um todo gerenciado por um único sistema operacional.
@@ -340,15 +342,22 @@ Joelho  & Flexão        & 0-140              \\ \hline
 
   O sistema operacional com suporte a multiprocessamento deve ser capaz de:
   \begin{itemize}
-    \item suportar multitarefa;
-    \item manter múltiplas filas de processos, uma para cada processador \cite{os}.
+    \item Suportar multitarefa;
+    \item Manter múltiplas filas de processos, uma para cada processador \cite{os}.
 
   \end{itemize}
 
   \subsection{Processamento massivamente paralelo}\label{massivamenteParalelo}
-  Processamento massivamente paralelo refere-se ao uso de um grande número de processadores (ou computadores separados) para executar um conjunto de cálculos coordenados em paralelo (simultaneamente), semelhante ao processamento distribuído \ref{distribuirProcessamento}.
+  MPP (\textit{Massively Parallel processing} - Processamento Massivamente Paralelo), é o processamento coordenado
+  de um programa por vários processadores que funcionam em diferentes partes do programa,
+   com cada processador usando seu próprio sistema operacional e memória.
+    Normalmente, os processadores MPP se comunicam usando alguma interface de mensagens.
 
-  Em uma abordagem, por exemplo, na computação em grade, o poder de processamento de um grande número de computadores em domínios administrativos distribuídos e diversos , é oportunisticamente usado sempre que um computador está disponível.
+     Em algumas implementações, até 200 ou mais processadores podem funcionar no mesmo aplicativo.
+      Um arranjo de "interconexões" de caminhos de dados permitem que mensagens sejam enviadas entre os processadores.
+       Normalmente, a configuração para MPP é mais complicada, exigindo pensar sobre como particionar um banco de dados
+        comum entre processadores e como atribuir trabalho entre eles.
+         Um sistema MPP também é conhecido como um sistema "vagamente acoplado" ou "nada compartilhado" \cite{mpp}.
 
   \section{Trabalho relacionado}
   \label{Sec:MetCondTCC}
